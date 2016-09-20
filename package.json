@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/dannygott/node_BPA_Ttraval/issues"
   },
-  "homepage": "https://github.com/dannygott/node_BPA_Ttraval#readme"
+  "homepage": "https://github.com/dannygott/node_BPA_Ttraval#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
