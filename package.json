@@ -1,22 +1,17 @@
 {
-  "name": "bpa_travel",
-  "version": "0.1.0",
-  "description": "BPA travel website project.",
-  "main": "index.js",
+  "name": "node_BPA_Ttraval",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dannygott/node_BPA_Ttraval.git"
-  },
-  "author": "Noah Rossi and Daniel Gott",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dannygott/node_BPA_Ttraval/issues"
-  },
-  "homepage": "https://github.com/dannygott/node_BPA_Ttraval#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "jade": "~1.11.0",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.0"
   }
 }
