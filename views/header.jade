@@ -1,14 +1,15 @@
-nav(class='navbar navbar-default')
-    div(class='container-fluid')
-        div(class='navbar-header')
-            button(type='button',class='navbar-toggle,collapsed',data-toggle='collapse',data-target='navbar-collapse',aria-expanded='false')
-                span(class='sr-only') Toggle navigation
-                each val in navItems
-                    span(class='icon-bar')
-            a(class='navbar-brand',href='#') #{title}
-        div(class='collapse navbar-collapse')
-            ul(class='nav navbar-nav')
-                each item in navItems
-                    - var isActive = (item.title == section ? 'active' : '')
-                    li(class=isActive)
-                        a(href='#{item.link}') #{item.title}
+if navItems
+    nav(class='navbar navbar-default')
+        div(class='container-fluid')
+            div(class='navbar-header')
+                button(type='button',class='navbar-toggle,collapsed',data-toggle='collapse',data-target='navbar-collapse',aria-expanded='false')
+                    span(class='sr-only') Toggle navigation
+                    each val in navItems
+                        span(class='icon-bar')
+                a(class='navbar-brand',href='#') #{title}
+            div(class='collapse navbar-collapse')
+                ul(class='nav navbar-nav')
+                    each item in navItems
+                        - var isActive = (item.title == section ? 'active' : '')
+                        li(class=isActive)
+                            a(href='#{item.link}') #{item.title}
