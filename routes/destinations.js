@@ -7,7 +7,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-    res.render('index', { title: req.params.id }); 
+    // database logic later
+    res.render('index', { title: req.params.id });
 });
 
 module.exports = router;
