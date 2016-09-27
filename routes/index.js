@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var navItems = [{title:'Home', link:'/'},{title:'Something else', link:'/thing'}];
+var navItems = require('../config.json').navItems;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
