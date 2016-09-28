@@ -18,10 +18,5 @@ var function DB_Conversionupdate(callback){
       if (err) callback(err);
     });
   });
-
-
-
   callback(err)
-
-
 }
