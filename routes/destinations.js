@@ -4,7 +4,7 @@ var navItems = require('../config.json').navItems;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.render('error', { message: 'No destination specified', error: { }, navItems: navItems });
+    res.render('error', { message: 'No destination specified', error: { }, navItems: navItems, section: 'destinations' });
 });
 
 router.get('/:id', function(req, res, next) {
