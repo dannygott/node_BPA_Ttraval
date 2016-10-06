@@ -28,3 +28,5 @@ build/Release
 node_modules
 
 Session.vim
+
+rethinkdb_data
