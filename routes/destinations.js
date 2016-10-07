@@ -14,7 +14,7 @@ router.get('/:id', function(req, res, next) {
     db.getDest(req.params.id, function(err, result) {
         console.log(result);
         if (!err) {
-            res.render('index', { title: result.title, navItems: navItems });
+            res.render('destination', { title: result.title, description: result.description, navItems: navItems });
         } else {
             console.error(err);
         }
