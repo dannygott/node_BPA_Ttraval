@@ -1,11 +1,18 @@
 var r = require('rethinkdb');
 
+var conn = null;
+
 r.connect({
     db: 'travel'
-}, function(err, conn) {
-    if !err {
-        module.exports = conn;
-    } else {
-        console.error(err);
-    }
+}, function(err, connection) {
+    if (err) throw err;
+    conn = connection;
+    console.log("DB Connected!");
 });
+
+module.exports = {
+    getDest(dest, cb) {
+        r.table('destinations').get(dest).run(conn, cb);
+    }
+
+}
