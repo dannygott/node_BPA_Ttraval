@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    div(class="row")
+        div(class="col-md-8 col-md-offset-2")
+            h1 Destinations
+            table(class="table table-striped")
+                thead
+                    tr
+                        th Section (id)
+                        th Destination
+                        th Description
+                tbody
+                    each dest in dests
+                        tr
+                            td= dest.id
+                            td= dest.title
+                            td= dest.description

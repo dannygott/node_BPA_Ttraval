@@ -8,8 +8,4 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express', section: 'Home', navItems: navItems});
 });
 
-router.get('/thing', function(req, res, next) {
-  res.render('index', { title: 'Thing', section: 'Something else', navItems: navItems});
-});
-
 module.exports = router;

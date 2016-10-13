@@ -13,6 +13,8 @@ r.connect({
 module.exports = {
     getDest(dest, cb) {
         r.table('destinations').get(dest).run(conn, cb);
+    },
+    getDests(cb) {
+        r.table('destinations').run(conn, cb);
     }
-
 }
