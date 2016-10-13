@@ -17,10 +17,12 @@ block content
                             td= dest.title
                             td= dest.description
                     tr
-                        td
-                            input(type='text',class='form-control')
-                        td
-                            input(type='text',class='form-control')
-                        td
-                            input(type='text',class='form-control')
-                            button(class="btn btn-primary pull-right") Submit
+                        form(action='/admin/addDest',method='post')
+                            td
+                                input(type='text',name='id',class='form-control')
+                            td
+                                input(type='text',name='dest',class='form-control')
+                            td
+                                input(type='text',name='desc',class='form-control')
+
+                                button(class="btn btn-primary pull-right",type="submit") Submit

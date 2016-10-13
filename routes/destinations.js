@@ -13,11 +13,10 @@ router.get('/:id', function(req, res, next) {
     // database logic later
     db.getDest(req.params.id, function(err, result) {
         console.log(result);
-        if (!err) {
-            res.render('destination', { title: result.title, description: result.description, navItems: navItems });
-        } else {
-            console.error(err);
-        }
+
+        if (err) throw err;
+
+        res.render('destination', { title: result.title, description: result.description, navItems: navItems });
     });
 });
 

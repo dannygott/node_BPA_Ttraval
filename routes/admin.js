@@ -17,4 +17,14 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.post('/addDest', function(req, res) {
+    let dest = req.body.dest,
+        id = req.body.id,
+        desc = req.body.desc;
+
+    console.log(dest + ' ' + id + ' ' + desc);
+
+    res.redirect('/admin');
+});
+
 module.exports = router;
