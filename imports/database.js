@@ -16,5 +16,8 @@ module.exports = {
     },
     getDests(cb) {
         r.table('destinations').run(conn, cb);
+    },
+    addDest(obj,cb) {
+        r.table('destinations').insert(obj).run(conn, cb);
     }
 }

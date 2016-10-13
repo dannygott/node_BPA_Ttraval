@@ -22,7 +22,10 @@ router.post('/addDest', function(req, res) {
         id = req.body.id,
         desc = req.body.desc;
 
-    console.log(dest + ' ' + id + ' ' + desc);
+    db.addDest({ title: dest, id: id, description: desc },function(err, result) {
+        if (err) throw err;
+
+    });
 
     res.redirect('/admin');
 });
