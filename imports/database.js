@@ -17,14 +17,14 @@ r.connect({
             console.log('Creating travel DB...');
         }
     });
-    r.db('travel').tableCreate('destinations').run(conn, function(err, result) {
+    r.tableCreate('destinations').run(conn, function(err, result) {
         if (err) {
             console.log('Using existing destinations table');
         } else {
             console.log('Creating destinations table...');
         }
     });
-    r.db('travel').tableCreate('users').run(conn, function(err, result) {
+    r.tableCreate('users').run(conn, function(err, result) {
         if (err) {
             console.log('Using existing users table');
         } else {
@@ -43,9 +43,9 @@ module.exports = {
     },
     addDest(obj,cb) {
         r.table('destinations').insert(obj).run(conn, cb);
-    }
+    },
 // Users
     getUser(username, cb) {
-        r.
+        // get user later
     }
 }
