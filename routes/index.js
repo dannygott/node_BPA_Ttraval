@@ -5,7 +5,7 @@ var navItems = require('../config.json').navItems;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('destination', { title: 'Express', section: 'Home', navItems: navItems});
+  res.render('index', { title: 'Express', section: 'home', navItems: navItems});
 });
 
 module.exports = router;

@@ -1,6 +1,6 @@
 {
 "navItems": [
-    {"title":"Home", "link":"/"},
+    {"title":"Home", "section": "home",  "link":"/"},
     {"title":"Destinations", "link":"/destinations", "section": "destinations"}
 ]
 }

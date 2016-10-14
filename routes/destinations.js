@@ -6,15 +6,25 @@ var db = require('../imports/database.js');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.render('error', { message: 'No destination specified', error: { }, navItems: navItems, section: 'destinations' });
+    // pull this from database later
+    var dests = [{image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"},{image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}];
+
+    res.render('destination', {navItems: navItems, section: 'destinations',
+        dests: dests });
 });
 
 router.get('/:id', function(req, res, next) {
     // database logic later
     db.getDest(req.params.id, function(err, result) {
         if (err) throw err;
-        console.log("DEBUG");
-        res.render('destination', { title: result.title, description: result.description, navItems: navItems });
+
+        if (!result) {
+            res.render('error', { message: 'Destination Not Found', error: {},
+            navItems: navItems });
+        } else {
+
+            res.render('destination', { title: result.title, description: result.description, navItems: navItems });
+        }
     });
 });
 
