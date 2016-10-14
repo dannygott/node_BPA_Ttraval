@@ -1,5 +1,17 @@
-extends layout
+mixin thumbnail(imageName, caption , secondcaption)
+  div( style = " margin-top : 5%; width : 30%; display: inline-block;")
+    img(src="#{imageName}" width = "80%" style = "position: relative;")
+    h4= caption
+    -if (secondcaption)
+      h6= secondcaption
 
+
+
+extends layout
 block content
-  h1= title
-  p #{description}
+  center
+    - var main = [{image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"},{image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}];
+    h1 Choose Your view
+    div.views
+      for name in main
+        +thumbnail( name.image , name.caption , name.secondcaption)
