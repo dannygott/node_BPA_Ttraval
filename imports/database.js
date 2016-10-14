@@ -44,8 +44,9 @@ module.exports = {
     addDest(obj,cb) {
         r.table('destinations').insert(obj).run(conn, cb);
     },
+
 // Users
     getUser(username, cb) {
-        // get user later
+        r.table('users').get(username).run(conn, cb);
     }
 }
