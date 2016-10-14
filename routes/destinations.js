@@ -13,7 +13,7 @@ router.get('/:id', function(req, res, next) {
     // database logic later
     db.getDest(req.params.id, function(err, result) {
         if (err) throw err;
-
+        console.log("DEBUG");
         res.render('destination', { title: result.title, description: result.description, navItems: navItems });
     });
 });
