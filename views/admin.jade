@@ -7,6 +7,7 @@ block content
             table(class="table table-striped")
                 thead
                     tr
+                        th Action
                         th Section (id)
                         th Destination
                         th Description
@@ -14,12 +15,18 @@ block content
                 tbody
                     each dest in dests
                         tr
+                            td
+                                a(type='button',class='btn btn-default',href='/admin/delDest/#{dest.id}')
+                                    span(class='glyphicon glyphicon-remove')
+                                button(type='button',class='btn btn-default')
+                                    span(class='glyphicon glyphicon-pencil')
                             td= dest.id
                             td= dest.title
                             td= dest.description
                             td= dest.image
                     tr
                         form(action='/admin/addDest',method='post')
+                            td
                             td
                                 input(type='text',name='id',class='form-control')
                             td

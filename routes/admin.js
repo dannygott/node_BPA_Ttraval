@@ -31,4 +31,12 @@ router.post('/addDest', function(req, res) {
     res.redirect('/admin');
 });
 
+router.get('/delDest/:id', function(req, res) {
+    let dest = req.params.id;
+
+    db.delDest(dest);
+
+    res.redirect('/admin');
+});
+
 module.exports = router;
