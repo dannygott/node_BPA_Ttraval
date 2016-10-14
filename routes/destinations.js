@@ -6,11 +6,17 @@ var db = require('../imports/database.js');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    // pull this from database later
-    var dests = [{image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"},{image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}];
+    //var dests = [{image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"},{image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}];
 
-    res.render('destination', {navItems: navItems, section: 'destinations',
-        dests: dests });
+    db.getDests(function(err, cursor) {
+        cursor.toArray(function(err, dests) {
+            if (err) throw err;
+
+            res.render('destinations', {navItems: navItems, section: 'destinations',
+                dests: dests });
+        });
+
+    });
 });
 
 router.get('/:id', function(req, res, next) {
