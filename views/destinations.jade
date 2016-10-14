@@ -1,16 +1,16 @@
 mixin thumbnail(imageName, caption , secondcaption)
   div( style = " margin-top : 5%; width : 30%; display: inline-block;")
-    img(src="img/#{imageName}" width = "80%" style = "position: relative;")
-    h4= caption
+    img(src="img/#{imageName}" height="300px" style="position: relative;")
+    h3= caption
     -if (secondcaption)
-      h6= secondcaption
+      p= secondcaption
 
 
 
 extends layout
 block content
   center
-    h1 Choose Your view
+    h1 Choose Your View
     div.views
       for name in dests
         +thumbnail( name.image , name.title , name.description)

@@ -20,9 +20,10 @@ router.get('/', function(req, res, next) {
 router.post('/addDest', function(req, res) {
     let dest = req.body.dest,
         id = req.body.id,
-        desc = req.body.desc;
+        desc = req.body.desc,
+        image = req.body.image;
 
-    db.addDest({ title: dest, id: id, description: desc },function(err, result) {
+    db.addDest({ title: dest, id: id, description: desc, image: image },function(err, result) {
         if (err) throw err;
 
     });

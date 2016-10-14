@@ -10,12 +10,14 @@ block content
                         th Section (id)
                         th Destination
                         th Description
+                        th Image (path)
                 tbody
                     each dest in dests
                         tr
                             td= dest.id
                             td= dest.title
                             td= dest.description
+                            td= dest.image
                     tr
                         form(action='/admin/addDest',method='post')
                             td
@@ -24,5 +26,7 @@ block content
                                 input(type='text',name='dest',class='form-control')
                             td
                                 input(type='text',name='desc',class='form-control')
+                            td
+                                input(type='text',name='image',class='form-control')
 
                                 button(class="btn btn-primary pull-right",type="submit") Submit
