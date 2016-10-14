@@ -6,7 +6,7 @@ var db = require('../imports/database.js');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.render('destinations', {navItems: navItems, section: 'destinations' });
+    res.render('destination', {navItems: navItems, section: 'destinations' });
 });
 
 router.get('/:id', function(req, res, next) {
