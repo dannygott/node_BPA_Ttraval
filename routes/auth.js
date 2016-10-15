@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
+var passport = require('passport');
+var bcrypt = require('bcrypt');
 var db = require('../imports/database.js');
 
 var navItems = require('../config.json').navItems;
@@ -17,17 +18,23 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.post('/login', function(req, res) {
-    let username = req.body.dest,
-        id = req.body.id,
-        desc = req.body.desc;
+router.post('/login', passport.authenticate('local', { successRedirect: '/',
+    failureRedirect: '/error'}
+));
 
-    db.addDest({ title: dest, id: id, description: desc },function(err, result) {
-        if (err) throw err;
+router.post('/register', function(req, res, next) {
+    let username = req.body.username,
+        password = req.body.password,
+        passHash;
 
+    bcrypt.hash(password, 10, function(err, hash) {
+        passHash = hash;
+        db.createUser(username, hash, function(err, res) {
+            if (err) throw err;
+        });
     });
 
-    res.redirect('/admin');
+    res.redirect('/');
 });
 
 module.exports = router;

@@ -51,5 +51,11 @@ module.exports = {
 // Users
     getUser(username, cb) {
         r.table('users').get(username).run(conn, cb);
+    },
+    createUser(user, pass, cb) {
+        r.table('users').insert({
+            id: user,
+            password: pass
+        }).run(conn, cb);
     }
 }

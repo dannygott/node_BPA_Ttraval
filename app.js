@@ -28,6 +28,7 @@ app.use('/', routes);
 app.use('/destinations', destinations);
 app.use('/admin', admin);
 app.use('/auth', auth);
+require('./imports/auth.js');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

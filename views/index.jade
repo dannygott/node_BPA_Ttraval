@@ -6,3 +6,22 @@ block content
         h1 Your Vacation is Only a Fiew Memes Away
         p(style = "padding-top:10px;") To get started head over to the destination tab
         img.Vacation(width = "90%" style = "padding-top:10px;" src = "vacation13.jpg")
+    form(action="/auth/login",method="post")
+        div
+            label Username:
+            input(type='text',name='username')
+        div
+            label Password:
+            input(type='password',name='password')
+        div
+            input(type='submit',value='Log in')
+
+    form(action="/auth/register",method="post")
+        div
+            label Username:
+            input(type='text',name='username')
+        div
+            label Password:
+            input(type='password',name='password')
+        div
+            input(type='submit',value='Register')
