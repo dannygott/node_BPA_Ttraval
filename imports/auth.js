@@ -47,7 +47,7 @@ module.exports = {
             } else if (group && req.user && req.user.group === group) {
                 next();
             } else {
-                res.send(401, 'Unauthorized');
+                res.render('error', { message: 'Unauthorized', error: {} });
             }
         }
     }

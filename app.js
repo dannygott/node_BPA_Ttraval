@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use(session({
     secret: 'memes',
     resave: false,
-    saveUnitinitialized: false
+    saveUninitialized: false
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
