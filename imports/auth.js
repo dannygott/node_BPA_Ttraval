@@ -4,8 +4,6 @@ var passport = require('passport'),
     bcrypt = require('bcrypt');
 
 function verifyPassword(pwd, hash) {
-    console.log(pwd);
-    console.log(hash);
     let matches = false;
     matches = bcrypt.compareSync(pwd, hash, function(err, res) {
         if (err) throw err;
