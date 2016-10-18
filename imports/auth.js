@@ -6,26 +6,30 @@ var passport = require('passport'),
 function verifyPassword(pwd, hash) {
     console.log(pwd);
     console.log(hash);
-    return bcrypt.compare(pwd, hash, function(err, res) {
+    let matches = false;
+    matches = bcrypt.compareSync(pwd, hash, function(err, res) {
+        if (err) throw err;
         return res;
     });
+
+    return matches;
 }
 
 passport.use(new LocalStrategy({
-        usernameField: 'id',
+        usernameField: 'username',
         passwordField: 'password'
     },
     function(username, password, cb) {
         db.getUser(username, function(err, user) {
-            console.log('user:' + user);
             if (err) return cb(err);
             if (!user) {
                 return cb(null, false, {message: 'Incorrect username.'});
             }
+
             if (!verifyPassword(password, user.password))
                 return cb(null, false, {message: 'Incorrect password.'});
 
-            return done(null, user);
+            return cb(null, user);
         });
     }
 ));
