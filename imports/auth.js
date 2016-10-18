@@ -38,3 +38,17 @@ passport.serializeUser(function(user,cb) {
 passport.deserializeUser(function(user,cb) {
     cb(null, user);
 });
+
+module.exports = {
+    authorizeUser(group) {
+        return function(req, res, next) {
+            if (!group && req.user) {
+                next();
+            } else if (group && req.user && req.user.group === group) {
+                next();
+            } else {
+                res.send(401, 'Unauthorized');
+            }
+        }
+    }
+}

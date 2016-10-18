@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-var db = require('../imports/database.js');
+var db = require('../imports/database.js'),
+    authorizeUser = require('../imports/auth.js').authorizeUser;
 
 var navItems = require('../config.json').navItems;
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', authorizeUser('admin'), function(req, res, next) {
     db.getDests(function(err, cursor) {
         if (err) throw err;
 
