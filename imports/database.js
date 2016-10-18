@@ -55,7 +55,8 @@ module.exports = {
     createUser(user, pass, cb) {
         r.table('users').insert({
             id: user,
-            password: pass
+            password: pass,
+            group: 'user'
         }).run(conn, cb);
     }
 }
