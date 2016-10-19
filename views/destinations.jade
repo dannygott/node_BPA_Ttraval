@@ -1,5 +1,5 @@
 mixin thumbnail(imageName, caption , secondcaption)
-  div( style = " margin-top : 5%; width : 30%; display: inline-block;")
+  div( style = " margin-top : 5%; width : 30%; display: inline-block;" href= "/#{caption}")
     img(src="img/#{imageName}" height="300px" style="position: relative;")
     h3= caption
     -if (secondcaption)
