@@ -13,6 +13,6 @@ nav(class='navbar navbar-default')
                 ul(class="nav navbar-nav navbar-right")
                     li
                         if user
-                            a(href='/auth/logout') Logout
+                            button(href='/auth/logout' type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.") Logout
                         else
-                            a(href='#') Login
+                            button(href='#' type="button" class="btn btn-secondary" data-toggle="popover" data-placement="auto" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.") Login
