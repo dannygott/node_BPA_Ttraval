@@ -32,14 +32,23 @@ router.post('/register', function(req, res, next) {
         password = req.body.password,
         passHash;
 
-    bcrypt.hash(password, 10, function(err, hash) {
-        passHash = hash;
-        db.createUser(username, hash, function(err, res) {
-            if (err) throw err;
-        });
+    db.getUser(username, function(err, result) {
+        if (err) throw err;
+
+        if (!result) {
+            bcrypt.hash(password, 10, function(err, hash) {
+                passHash = hash;
+                db.createUser(username, hash, function(err, res) {
+                    if (err) throw err;
+                });
+            });
+            res.redirect('/');
+        } else {
+            // user already exists
+            res.render('error', { message: 'User Already Exists' });
+        }
     });
 
-    res.redirect('/');
 });
 
 module.exports = router;

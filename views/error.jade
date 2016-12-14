@@ -4,5 +4,7 @@ block content
     div(class="row")
         div(class="col-md-8 col-md-offset-2")
             h1 Error: #{message}
-            h2= error.status
-            pre #{error.stack}
+            a(href="/") <- Go Back Home
+            if error
+                h2= error.status
+                pre #{error.stack}
