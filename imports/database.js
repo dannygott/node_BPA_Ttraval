@@ -1,4 +1,5 @@
 var r = require('rethinkdb');
+var fs = require('fs');
 
 var conn = null;
 
@@ -45,7 +46,10 @@ module.exports = {
         r.table('destinations').insert(obj).run(conn, cb);
     },
     delDest(id) {
-        r.table('destinations').get(id).delete().run(conn);
+        this.getDest(id, function(err, res) {
+            fs.unlinkSync('public/img/' + res.image);
+            r.table('destinations').get(id).delete().run(conn);
+        });
     },
 
 // Users
