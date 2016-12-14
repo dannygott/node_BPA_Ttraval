@@ -1,5 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var multer = require('multer');
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/img');
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + "-" + file.originalname);
+  }
+});
+var upload = multer({ storage: storage });
 
 var db = require('../imports/database.js'),
     authorizeUser = require('../imports/auth.js').authorizeUser;
@@ -18,11 +29,11 @@ router.get('/', authorizeUser('admin'), function(req, res, next) {
     });
 });
 
-router.post('/addDest', function(req, res) {
+router.post('/addDest', upload.single('image'), function(req, res) {
     let dest = req.body.dest,
         id = req.body.id,
         desc = req.body.desc,
-        image = req.body.image;
+        image = req.file.filename;
 
     db.addDest({ title: dest, id: id, description: desc, image: image },function(err, result) {
         if (err) throw err;
