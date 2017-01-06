@@ -43,6 +43,17 @@ router.post('/addDest', upload.single('image'), function(req, res) {
     res.redirect('/admin');
 });
 
+router.post('modDest', upload.single('image'), function(req, res) {
+    let id = req.body.id,
+        dest = req.body.dest,
+        desc = req.body.image,
+        image = req.file.filename;
+
+    console.log(image);
+
+    res.redirect('/admin');
+});
+
 router.get('/delDest/:id', function(req, res) {
     let dest = req.params.id;
 
