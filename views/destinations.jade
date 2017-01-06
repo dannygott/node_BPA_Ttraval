@@ -1,7 +1,8 @@
-mixin thumbnail(imageName, name , caption)
+mixin thumbnail(id, imageName, name , caption)
   div( style="margin-top: 2%; width: 30%;  margin-left: 2%; margin-right 2%; display: inline-block; border-radius: 5px; background-color:white; box-shadow: 2px 2px 1px #C8C8C8 ;")
     img(src="img/#{imageName}" height="300px" style="position: relative; margin-top:10px;")
-    h3= name
+    h3
+        a(href=id)= name
     -if (caption)
       p= caption
 
@@ -12,5 +13,5 @@ block content
   center
     h1 Choose Your View
     div.views
-      for name in dests
-        +thumbnail( name.image , name.title , name.description)
+      for dest in dests
+        +thumbnail(dest.id, dest.image , dest.title , dest.description)
