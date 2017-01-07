@@ -29,7 +29,7 @@ router.get('/:id', function(req, res, next) {
             navItems: navItems });
         } else {
 
-            res.render('destination', { title: result.title, description: result.description, navItems: navItems });
+            res.render('destination', { dest: result, navItems: navItems });
         }
     });
 });
