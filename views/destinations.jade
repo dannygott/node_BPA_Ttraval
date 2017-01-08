@@ -11,7 +11,7 @@ mixin thumbnail(id, imageName, name , caption)
 extends layout
 block content
   center
-    h1 Choose Your View
+    h1(style="font-size: 70px") Choose Your View
     div.views
       for dest in dests
         +thumbnail(dest.id, dest.image , dest.title , dest.description)
