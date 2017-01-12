@@ -30,6 +30,7 @@ router.get('/logout', function(req, res) {
 router.post('/register', function(req, res, next) {
     let username = req.body.username,
         password = req.body.password,
+        airport = req.body.airport,
         passHash;
 
     db.getUser(username, function(err, result) {
@@ -38,7 +39,7 @@ router.post('/register', function(req, res, next) {
         if (!result) {
             bcrypt.hash(password, 10, function(err, hash) {
                 passHash = hash;
-                db.createUser(username, hash, function(err, res) {
+                db.createUser(username, hash, airport, function(err, res) {
                     if (err) throw err;
                 });
             });
