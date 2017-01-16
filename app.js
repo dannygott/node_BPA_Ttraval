@@ -9,6 +9,7 @@ var passport = require('passport');
 
 var routes = require('./routes/index');
 var destinations = require('./routes/destinations');
+var checkout = require('./routes/checkout');
 var admin = require('./routes/admin');
 var auth = require('./routes/auth');
 
@@ -35,6 +36,7 @@ app.use(passport.session());
 
 app.use('/', routes);
 app.use('/destinations', destinations);
+app.use('/checkout', checkout);
 app.use('/admin', admin);
 app.use('/auth', auth);
 
