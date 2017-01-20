@@ -5,9 +5,10 @@ block content
         center
           div
             h1(style="font-size: 70px") Check Out
-            h3 Flight Information
 
-          div(style = "padding-top:2vw; ")
+
+          div.bluBox
+                h3(style="color:white; padding-top:0; padding-bottom:3%;") Flight Information
                 div(style = "background-color:white; border: 2px solid white; border-radius: 20px 0px 0px 20px; display: inline-block; ").shadow
                   div(style = "padding:2vw 3vw 2vw 3vw;")
                     h3 From
@@ -23,3 +24,8 @@ block content
                     p WHatever The airport
                     div(id = "toMap" style = "width:20vw;")
                     script(src="/javascripts/maps.js")
+            div.bluBox
+              div(style ="background-color:white; border-radius:15px;").shadow
+                  h3 Currency Converter
+                  form
+                    input(type="text" name="Firstname")

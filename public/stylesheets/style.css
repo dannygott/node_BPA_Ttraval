@@ -46,7 +46,12 @@ html, body
 #fromMap{
   height: 180px;
 }
-
+.bluBox{
+  margin:2%;
+  padding:2%;
+  background-color:rgba(77, 138, 209, 0.99);
+  border-radius:15px;
+}
 .center {
   position: absolute;
   top: 50%;
