@@ -52,6 +52,31 @@ html, body
   background-color:rgba(77, 138, 209, 0.99);
   border-radius:15px;
 }
+input[type=number] {
+    border: 2px solid rgba(77, 138, 209, 0.99);
+    height: 3vw;
+    width: 10vw;
+    font-size: 2vw;
+    border-radius: 4px;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+input[type=number]:focus {
+  border: 2px solid rgb(53, 252, 204);
+  height: 3vw;
+  width: 10vw;
+  font-size: 2vw;
+  outline-width: 0;
+  transition-duration: 0.4s;
+  border-radius: 4px;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+}
+
 .center {
   position: absolute;
   top: 50%;

@@ -25,7 +25,12 @@ block content
                     div(id = "toMap" style = "width:20vw;")
                     script(src="/javascripts/maps.js")
             div.bluBox
+              h3(style="color:white; padding-top:0; padding-bottom:3%;") Currency Converter
               div(style ="background-color:white; border-radius:15px;").shadow
-                  h3 Currency Converter
-                  form
-                    input(type="text" name="Firstname")
+                  script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
+                  script(type="text/javascript" src="javascripts/jquery.autocomplete.min.js")
+                  script(src="/javascripts/auto.js")
+                  form(id="Currency")
+                    input(type="number" name="To" id="localCurrency")
+                    button( type="button" onclick="return convert();").destButton Convert
+                    input(type="number" name="From" id="destCurrency")
