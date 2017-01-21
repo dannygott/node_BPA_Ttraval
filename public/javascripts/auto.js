@@ -1,7 +1,11 @@
 var oldLocalCurrency
 var oldDestCurrency
 var converted
+
+// need to grab from backend
 var rate = 2
+// need to grab from backend
+
 function convert() {
   var localCurrency = document.getElementById('localCurrency').value
   var destCurrency = document.getElementById('destCurrency').value
