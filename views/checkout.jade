@@ -8,7 +8,8 @@ block content
 
 
           div.bluBox
-                h3(style="color:white; padding-top:0; padding-bottom:3%;") Flight Information
+                div
+                  h3(style=" display:inline-block; background-color:white; padding:1%;  margin-bottom:2%; border-radius:15px;") Flight Information
                 div(style = "background-color:white; border: 2px solid white; border-radius: 20px 0px 0px 20px; display: inline-block; ").shadow
                   div(style = "padding:2vw 3vw 2vw 3vw;")
                     h3 From
@@ -25,12 +26,13 @@ block content
                     div(id = "toMap" style = "width:20vw;")
                     script(src="/javascripts/maps.js")
             div.bluBox
-              h3(style="color:white; padding-top:0; padding-bottom:3%;") Currency Converter
+              div
+                h3(style=" display:inline-block; background-color:white; padding:1%;  margin-bottom:2%; border-radius:15px;").shadow Currency Converter
               div(style ="background-color:white; border-radius:15px;").shadow
                   script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
                   script(type="text/javascript" src="javascripts/jquery.autocomplete.min.js")
                   script(src="/javascripts/auto.js")
                   form(id="Currency")
                     input(type="number" name="To" id="localCurrency")
-                    button( type="button" onclick="return convert();").destButton Convert
+                    button( type="button" onclick="return convert();" style = "height:3vw;").destButton Convert
                     input(type="number" name="From" id="destCurrency")
