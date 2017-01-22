@@ -34,8 +34,9 @@ h1{
   border-radius:360px;
   background-color: white;
   margin: -20px;
-  margin-bottom: 2%;
   background-image: url("/img/flightcircle.png");
+  display: inline-block;
+  vertical-align: middle;
 }
 #toMap{
   height: 180px;
