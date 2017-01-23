@@ -3,6 +3,7 @@ block content
 
     div
         center
+<<<<<<< HEAD
           div
             h1(style="font-size: 70px") Check Out
 
@@ -36,3 +37,24 @@ block content
                     input(type="number" name="To" id="localCurrency")
                     button( type="button" onclick="return convert();" style = "height:3vw;").destButton Convert
                     input(type="number" name="From" id="destCurrency")
+=======
+          h1(style="font-size: 70px") Check Out
+          h3 Flight Information
+          div(style = "padding-top:2vw;")
+            center
+              div.airportCard
+                div(style = "padding:2vw 3vw 2vw 3vw;")
+                  h3 From
+                  p whatever the airport
+                  div(id = "fromMap" style = "width:20vw;")
+                  script(src="/javascripts/maps.js")
+
+              image(src="/img/flightcircle.png").centered.shadow.flightCircle
+
+              div.airportCard
+                div(style = "padding:2vw 3vw 2vw 3vw;")
+                  h3 To
+                  p WHatever The airport
+                  div(id = "toMap" style = "width:20vw;")
+                  script(src="/javascripts/maps.js")
+>>>>>>> master

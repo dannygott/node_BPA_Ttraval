@@ -39,7 +39,18 @@ html, body
   background-color: white;
   margin: -20px;
   background-image: url("/img/flightcircle.png");
+  display: inline-block;
+  vertical-align: middle;
+  height: 12rem;
+  width: 12rem;
 }
+
+.airportCard {
+  background-color: white;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 #toMap{
   height: 180px;
 }
