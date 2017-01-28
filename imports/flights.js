@@ -6,9 +6,8 @@ var verifyCode = function(code,cb) {
         {form: { api_key: key, code: code }},
         (err, resp, body) => {
             if (err) throw err;
-            console.log(body);
             body = JSON.parse(body);
-            if (body.response) {
+            if (body.response[0]) {
                 cb(true);
             } else {
                 cb(false);
@@ -16,7 +15,7 @@ var verifyCode = function(code,cb) {
     });
 }
 
-verifyCode('MMPHL', (result) => {
+verifyCode('JFK', (result) => {
     console.log(result);
 });
 
