@@ -19,7 +19,6 @@ router.get('/', function(req, res, next) {
 
 /* GET a single destination */
 router.get('/:id', function(req, res, next) {
-    // database logic later
     db.getDest(req.params.id, function(err, result) {
         if (err) throw err;
 
