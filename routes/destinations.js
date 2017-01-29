@@ -6,8 +6,6 @@ var db = require('../imports/database.js');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    //var dests = [{image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"},{image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}];
-
     db.getDests(function(err, cursor) {
         cursor.toArray(function(err, dests) {
             if (err) throw err;
