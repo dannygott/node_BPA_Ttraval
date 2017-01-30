@@ -2,5 +2,6 @@
 "navItems": [
     {"title":"Home", "section": "home",  "link":"/"},
     {"title":"Destinations", "link":"/destinations", "section": "destinations"}
-]
+],
+"airportAPIKey": "650c197f-deb7-45e5-a278-ca24ddc01d4f"
 }

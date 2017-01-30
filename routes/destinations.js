@@ -4,10 +4,8 @@ var navItems = require('../config.json').navItems;
 
 var db = require('../imports/database.js');
 
-/* GET users listing. */
+/* GET destinations listing. */
 router.get('/', function(req, res, next) {
-    //var dests = [{image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"},{image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}, {image: "cancun.jpeg", caption: "young bool betta come hea"}];
-
     db.getDests(function(err, cursor) {
         cursor.toArray(function(err, dests) {
             if (err) throw err;
@@ -19,8 +17,8 @@ router.get('/', function(req, res, next) {
     });
 });
 
+/* GET a single destination */
 router.get('/:id', function(req, res, next) {
-    // database logic later
     db.getDest(req.params.id, function(err, result) {
         if (err) throw err;
 

@@ -1,18 +1,25 @@
-nav(class='navbar navbar-default')
-    div(class='container-fluid')
-        div(class='navbar-header')
-            a(class='navbar-brand',href='#') Travel Memes
-        div(class='collapse navbar-collapse')
+nav.navbar.navbar-default
+    div.container-fluid
+        div.navbar-header
+            a(href='/').navbar-brand Travel Memes
+        div.collapse.navbar-collapse
             if navItems
-                ul(class='nav navbar-nav')
+                ul.nav.navbar-nav
                     each item in navItems
                         - var isActive = (item.section == section ? 'active' : '')
                         li(class=isActive)
                             a(href='#{item.link}') #{item.title}
 
-                ul(class="nav navbar-nav navbar-right")
+                ul.nav.navbar-nav.navbar-right
                     li
                         if user
-                            button(href='/auth/logout' type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.") Logout
+                            li.dropdown
+                                a(href='#',data-toggle="dropdown",aria-haspopup="true",aria-expanded="false") #{user.id}
+                                    span.caret
+                                ul.dropdown-menu
+                                    li
+                                        a(href='/settings') Settings
+                                        a(href='/auth/logout') Logout
                         else
-                            button(href='#' type="button" class="btn btn-secondary" data-toggle="popover" data-placement="auto" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.") Login
+                            li
+                                a(href='#') Login

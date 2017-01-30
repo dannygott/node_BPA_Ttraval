@@ -6,7 +6,6 @@ var db = require('../imports/database.js');
 
 var navItems = require('../config.json').navItems;
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
     db.getDests(function(err, cursor) {
         if (err) throw err;
@@ -33,22 +32,28 @@ router.post('/register', function(req, res, next) {
         airport = req.body.airport,
         passHash;
 
-    db.getUser(username, function(err, result) {
-        if (err) throw err;
+    // check for password requirements (length, has number, has uppercase)
+    if (password.length >= 6 && /\d/.test(password) && /[A-Z]/.test(password)) {
+        db.getUser(username, function(err, result) {
+            if (err) throw err;
 
-        if (!result) {
-            bcrypt.hash(password, 10, function(err, hash) {
-                passHash = hash;
-                db.createUser(username, hash, airport, function(err, res) {
-                    if (err) throw err;
+            if (!result) {
+                bcrypt.hash(password, 10, function(err, hash) {
+                    passHash = hash;
+                    db.createUser(username, hash, airport, function(err, res) {
+                        if (err) throw err;
+                    });
                 });
-            });
-            res.redirect('/');
-        } else {
-            // user already exists
-            res.render('error', { message: 'User Already Exists' });
-        }
-    });
+                res.redirect('/');
+            } else {
+                // user already exists
+                res.render('error', { message: 'User Already Exists' });
+            }
+        });
+    } else {
+        res.render('error', { message: 'Password requirements not met',
+        description: 'A password must have: At least 6 characters, 1 number, and one uppercase letter'});
+    }
 
 });
 
