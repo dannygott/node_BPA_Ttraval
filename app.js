@@ -12,6 +12,7 @@ var destinations = require('./routes/destinations');
 var checkout = require('./routes/checkout');
 var admin = require('./routes/admin');
 var auth = require('./routes/auth');
+var settings = require('./routes/settings');
 
 var app = express();
 
@@ -39,6 +40,7 @@ app.use('/destinations', destinations);
 app.use('/checkout', checkout);
 app.use('/admin', admin);
 app.use('/auth', auth);
+app.use('/settings', settings);
 
 require('./imports/auth.js');
 
