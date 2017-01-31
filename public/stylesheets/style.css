@@ -99,6 +99,7 @@ input[type=number]:focus {
 
 
 .fullscreen {
+    display: none;
     z-index: 1;
     width: 100%;
     height: 100%;

@@ -1,3 +1,4 @@
+script(type="text/javascript" src="javascripts/loginfadr.js")
 nav.navbar.navbar-default
     div.container-fluid
         div.navbar-header
@@ -22,4 +23,4 @@ nav.navbar.navbar-default
                                         a(href='/auth/logout') Logout
                         else
                             li
-                                a(href='/') Login
+                                button(onclick="fadetologin(true)").destButton Login
