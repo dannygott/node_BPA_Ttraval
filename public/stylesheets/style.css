@@ -11,11 +11,11 @@ html, body
   transition-duration: 0.4s;
   border-radius: 4px;
   padding: .5vw 1.5vw;
-  color: white;
+  background-color:rgba(77, 138, 209, 0.99);
   border: 2px solid white;
 }
 .destButton:hover {
-    background-color: #4CAF50;
+    background-color: rgb(24, 83, 231);
     color: white;
     padding: .5vw 1.5;
     border-radius: 4px;

@@ -8,14 +8,6 @@ mixin thumbnail(id, imageName, name , caption)
       -if (caption)
         p= caption
 
-  div(style="margin-top: 2%; width: 400px;  margin-left: 2%; margin-right 2%; display: inline-block; border-radius: 5px; background-color:white; box-shadow: 2px 2px 1px #C8C8C8 ;")
-    img(src="img/#{imageName}" width="75%" style="  align-self: center; margin-left:30px; margin-right:30px; margin-top:30px;")
-    h3
-        a(href="destinations/"+id)= name
-        -if (caption)
-      p= caption
-
-
 
 
 extends layout
