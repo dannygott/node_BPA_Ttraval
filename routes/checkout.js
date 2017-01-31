@@ -11,8 +11,8 @@ router.get('/', function(req, res, next) {
         cursor.toArray(function(err, dests) {
             if (err) throw err;
 
-            res.render('checkout', {navItems: navItems, section: 'checkout',
-                dests: dests });
+            res.render('checkout', {navItems: navItems, user: req.user,
+                section: 'checkout', dests: dests });
         });
 
     });
@@ -28,7 +28,8 @@ router.get('/:id', authorizeUser(), function(req, res, next) {
             navItems: navItems });
         } else {
 
-            res.render('destination', { dest: result, navItems: navItems });
+            res.render('checkout', { dest: result, user: req.user,
+                navItems: navItems });
         }
     });
 });
