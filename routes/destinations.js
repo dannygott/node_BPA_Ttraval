@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
             if (err) throw err;
 
             res.render('destinations', {navItems: navItems, section: 'destinations',
-                dests: dests });
+                user: req.user, dests: dests });
         });
 
     });
@@ -27,7 +27,8 @@ router.get('/:id', function(req, res, next) {
             navItems: navItems });
         } else {
 
-            res.render('destination', { dest: result, navItems: navItems });
+            res.render('destination', { dest: result, user: req.user,
+                navItems: navItems });
         }
     });
 });
