@@ -5,4 +5,6 @@ block content
         if user
             a(href='/checkout/'+dest.id).btn.btn-primary Check Out
         else
-            a(href='/checkout/'+dest.id).btn.btn-primary.disabled Check Out
+            a(href='/checkout/'+dest.id,data-toggle="tooltip",
+            title="You must have an account to check out")
+                .btn.btn-primary.disabled Check Out

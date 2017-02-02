@@ -15,7 +15,17 @@ var verifyCode = function(code,cb) {
     });
 }
 
-verifyCode('JFK', (result) => {
+var getAirportName = function(code,cb) {
+    request.get("https://iatacodes.org/api/v6/airports",
+        {form: { api_key: key, code: code }},
+        (err, resp, body) => {
+            if (err) throw err;
+            body = JSON.parse(body);
+            cb(body.response[0].name)
+    });
+}
+
+getAirportName('JFK', (result) => {
     console.log(result);
 });
 
