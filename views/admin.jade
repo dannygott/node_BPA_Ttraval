@@ -9,6 +9,7 @@ block content
                     tr
                         th 
                         th Section (id)
+                        th Airport Code
                         th Destination
                         th Description
                         th Image (path)
@@ -21,6 +22,7 @@ block content
                                 button(type='button',class='btn btn-default')
                                     span(class='glyphicon glyphicon-pencil')
                             td= dest.id
+                            td= dest.airport
                             td= dest.title
                             td= dest.description
                             td= dest.image
