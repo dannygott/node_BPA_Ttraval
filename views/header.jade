@@ -35,32 +35,36 @@ div(onclick = "fadetologin(false)").fullscreen.login.text-center
             div(class="panel-heading")
                 h3(class="panel-title") Login/Register
             div(class="panel-body")
-                form(class="form-horizontal",action="/auth/login",method="post").loginform
-                    div(class="form-group")
-                        label(class="col-md-4 control-label") Username
-                        div(class="col-md-8")
-                            input(type='text',name='username')
-                    div(class="form-group")
-                        label(class="col-md-4 control-label") Password
-                        div(class="col-sm-8")
-                            input(type='password',name='password')
-                    div(class="form-group")
-                        div(class="col-md-offset-4 col-md-8")
-                            input(class="btn btn-default",type='submit',value='Log in')
-                button.destButton Register 
-                form(class="form-horizontal",action="/auth/register",method="post").register
-                    div(class="form-group")
-                        label(class="col-md-4 control-label") Username
-                        div(class="col-md-8")
-                            input(type='text',name='username')
-                    div(class="form-group")
-                        label(class="col-md-4 control-label") Password
-                        div(class="col-sm-8")
-                            input(type='password',name='password')
-                    div(class="form-group")
-                        label(class="col-md-4 control-label") Airport Code
-                        div(class="col-sm-8")
-                            input(type='text',name='airport')
-                    div(class="form-group")
-                        div(class="col-md-offset-4 col-md-8")
-                            input(class="btn btn-default",type='submit',value='Register')
+              div.loginform
+                  form(class="form-horizontal",action="/auth/login",method="post")
+                      div(class="form-group")
+                          label(class="col-md-4 control-label") Username
+                          div(class="col-md-8")
+                              input(type='text',name='username')
+                      div(class="form-group")
+                          label(class="col-md-4 control-label") Password
+                          div(class="col-sm-8")
+                              input(type='password',name='password')
+                      div(class="form-group")
+                          div(class="col-md-offset-4 col-md-8")
+                              input(class="btn btn-default",type='submit',value='Log in')
+                    button(onclick="register(true)").destButton Register
+                div.register
+
+                  form(class="form-horizontal",action="/auth/register",method="post")
+                      div(class="form-group")
+                          label(class="col-md-4 control-label") Username
+                          div(class="col-md-8")
+                              input(type='text',name='username')
+                      div(class="form-group")
+                          label(class="col-md-4 control-label") Password
+                          div(class="col-sm-8")
+                              input(type='password',name='password')
+                      div(class="form-group")
+                          label(class="col-md-4 control-label") Airport Code
+                          div(class="col-sm-8")
+                              input(type='text',name='airport')
+                      div(class="form-group")
+                          div(class="col-md-offset-4 col-md-8")
+                              input(class="btn btn-default",type='submit',value='Register')
+                    button(onclick="register(false)").destButton Back To Logon

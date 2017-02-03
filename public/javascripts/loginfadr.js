@@ -3,12 +3,13 @@ function fadetologin(selector) {
     $(".login").fadeIn( 'slow', function(){
     });
   }else {
-    if (checkhover() != "INPUT" && checkhover() != "FORM") {
-      $(".login").fadeOut( 'slow', function()
+    if (checkhover() != "INPUT" && checkhover() != "FORM" && checkhover() != "BUTTON") {
+      $(".login").fadeOut( 'slow', function(){
       });
     }
   }
 }
+
 function register(selector) {
   if (selector == true) {
     $(".loginform").fadeOut( 'slow', function(){
@@ -23,11 +24,6 @@ function register(selector) {
       });
   }
 }
-
-
-
-
-
 function checkhover(){
  var element = $(':hover');
     if(element.length)
