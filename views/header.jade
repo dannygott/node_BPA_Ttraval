@@ -35,7 +35,7 @@ div(onclick = "fadetologin(false)").fullscreen.login.text-center
             div(class="panel-heading")
                 h3(class="panel-title") Login/Register
             div(class="panel-body")
-                form(class="form-horizontal",action="/auth/login",method="post")
+                form(class="form-horizontal",action="/auth/login",method="post").loginform
                     div(class="form-group")
                         label(class="col-md-4 control-label") Username
                         div(class="col-md-8")
@@ -47,8 +47,8 @@ div(onclick = "fadetologin(false)").fullscreen.login.text-center
                     div(class="form-group")
                         div(class="col-md-offset-4 col-md-8")
                             input(class="btn btn-default",type='submit',value='Log in')
-
-                form(class="form-horizontal",action="/auth/register",method="post")
+                button.destButton Register 
+                form(class="form-horizontal",action="/auth/register",method="post").register
                     div(class="form-group")
                         label(class="col-md-4 control-label") Username
                         div(class="col-md-8")

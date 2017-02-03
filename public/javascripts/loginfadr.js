@@ -1,19 +1,33 @@
 function fadetologin(selector) {
   if (selector == true) {
     $(".login").fadeIn( 'slow', function(){
-      console.log("bool");
     });
   }else {
     if (checkhover() != "INPUT" && checkhover() != "FORM") {
-      console.log(checkhover());
-      $(".login").fadeOut( 'slow', function(){
-        console.log("bool");
+      $(".login").fadeOut( 'slow', function()
       });
     }
-
   }
-
 }
+function register(selector) {
+  if (selector == true) {
+    $(".loginform").fadeOut( 'slow', function(){
+      $(".register").fadeIn( 'slow', function(){
+      });
+    });
+
+  }else {
+      $(".register").fadeout( 'slow', function(){
+        $(".loginform").fadeIn( 'slow', function(){
+        });
+      });
+  }
+}
+
+
+
+
+
 function checkhover(){
  var element = $(':hover');
     if(element.length)

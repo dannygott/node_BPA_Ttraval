@@ -111,3 +111,7 @@ input[type=number]:focus {
     background-size: 100% 100vh;
     background-repeat: no-repeat;
 }
+
+.register{
+  display: none;
+}
