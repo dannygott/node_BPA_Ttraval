@@ -7,20 +7,21 @@ block content
             table(class="table table-striped")
                 thead
                     tr
-                        th 
-                        th Section (id)
-                        th Airport Code
-                        th Destination
+                        th.col-md-1
+                        th.col-md-1 Section (id)
+                        th.col-md-1 Airport
+                        th.col-md-2 Destination
                         th Description
                         th Image (path)
                 tbody
                     each dest in dests
                         tr
                             td
-                                a(type='button',class='btn btn-default',href='/admin/delDest/#{dest.id}')
-                                    span(class='glyphicon glyphicon-remove')
-                                button(type='button',class='btn btn-default')
-                                    span(class='glyphicon glyphicon-pencil')
+                                div.btn-group
+                                    a(href='/admin/delDest/#{dest.id}').btn.btn-default
+                                        span(class='glyphicon glyphicon-remove')
+                                    a.btn.btn-default
+                                        span(class='glyphicon glyphicon-pencil')
                             td= dest.id
                             td= dest.airport
                             td= dest.title
@@ -30,11 +31,13 @@ block content
                         form(action='/admin/addDest',method='post',enctype='multipart/form-data')
                             td
                             td
-                                input(type='text',name='id',class='form-control')
+                                input(type='text',name='airport').form-control
                             td
-                                input(type='text',name='dest',class='form-control')
+                                input(type='text',name='id').form-control
                             td
-                                input(type='text',name='desc',class='form-control')
+                                input(type='text',name='dest').form-control
+                            td
+                                input(type='text',name='desc').form-control
                             td
                                 input(type='file',name='image')
 
