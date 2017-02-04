@@ -16,9 +16,8 @@ function register(selector) {
       $(".register").fadeIn( 'slow', function(){
       });
     });
-
   }else {
-      $(".register").fadeout( 'slow', function(){
+      $(".register").fadeOut( 'slow', function(){
         $(".loginform").fadeIn( 'slow', function(){
         });
       });
