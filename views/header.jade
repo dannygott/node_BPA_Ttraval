@@ -16,9 +16,9 @@ nav.navbar.navbar-default
                             li.dropdown
                                 a(href='#',data-toggle="dropdown",aria-haspopup="true",aria-expanded="false") #{user.id}
                                     span.caret
-                                        ul.dropdown-menu
-                                            li
-                                                a(href='/settings') Settings
+                                ul.dropdown-menu
+                                    li
+                                        a(href='/settings') Settings
                                         a(href='/auth/logout') Logout
                         else
                             li
@@ -29,10 +29,10 @@ div(onclick = "fadetologin(false)").fullscreen.login.text-center
         div(class="panel-heading")
             h3(class="panel-title") Login/Register
         div(class="panel-body")
-            div.loginform
-                form(class="form-horizontal",action="/auth/login",method="post")
-                    div(class="form-group")
-                        label(class="col-md-4 control-label") Username
+          div.loginform
+              form(class="form-horizontal",action="/auth/login",method="post")
+                  div(class="form-group")
+                      label(class="col-md-4 control-label") Username
                       div(class="col-md-8")
                           input(type='text',name='username')
                   div(class="form-group")
@@ -43,11 +43,11 @@ div(onclick = "fadetologin(false)").fullscreen.login.text-center
                       div(class="col-md-offset-4 col-md-8")
                           input(class="btn btn-default",type='submit',value='Log in')
                 button(onclick="register(true)").destButton Register
-
+                
             div.register
-                form(class="form-horizontal",action="/auth/register",method="post")
-                    div(class="form-group")
-                        label(class="col-md-4 control-label") Username
+              form(class="form-horizontal",action="/auth/register",method="post")
+                  div(class="form-group")
+                      label(class="col-md-4 control-label") Username
                       div(class="col-md-8")
                           input(type='text',name='username')
                   div(class="form-group")
