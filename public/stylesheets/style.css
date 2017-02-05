@@ -64,7 +64,7 @@ html, body
   background-color:rgba(77, 138, 209, 0.99);
   border-radius:15px;
 }
-input[type=number] {
+.inputstyled{
     border: 2px solid rgba(77, 138, 209, 0.99);
     height: 3vw;
     width: 10vw;
@@ -75,7 +75,7 @@ input[type=number] {
     margin-top: 2vw;
     margin-bottom: 2vw;
 }
-input[type=number]:focus {
+.inputstyled:focus{
   border: 2px solid rgb(53, 252, 204);
   height: 3vw;
   width: 10vw;
@@ -114,4 +114,10 @@ input[type=number]:focus {
 
 .register{
   display: none;
+}
+.blutytles{
+  display:inline-block;
+  background-color:white; padding:1%;
+  margin-bottom:2%;
+  border-radius:15px;
 }

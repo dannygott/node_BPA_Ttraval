@@ -7,7 +7,7 @@ block content
 
 
             div.bluBox.shadow
-              h3(style=" display:inline-block; background-color:white; padding:1%;  margin-bottom:2%; border-radius:15px;").shadow Flight Information
+              h3.blutytles.shadow Flight Information
               div(style = "padding-top:2vw;")
                 center
                   div(style="border-radius: 15px 0px 0px 15px;").airportCard.shadow
@@ -28,12 +28,12 @@ block content
 
             div.bluBox.shadow
               div
-                h3(style=" display:inline-block; background-color:white; padding:1%;  margin-bottom:2%; border-radius:15px;").shadow Currency Converter
+                  h3.blutytles.shadow Currency Converter
               div(style ="background-color:white; border-radius:15px;").shadow
                   script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
                   script(type="text/javascript" src="javascripts/jquery.autocomplete.min.js")
                   script(src="/javascripts/auto.js")
                   form(id="Currency")
-                    input(type="number" name="To" id="localCurrency")
+                    input(type="number" name="To" id="localCurrency").inputstyled
                     button( type="button" onclick="return convert();" style = "height:3vw;").destButton Convert
-                    input(type="number" name="From" id="destCurrency")
+                    input(type="number" name="From" id="destCurrency").inputstyled
