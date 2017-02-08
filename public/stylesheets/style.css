@@ -42,8 +42,8 @@ html, body
   background-image: url("/img/flightcircle.png");
   display: inline-block;
   vertical-align: middle;
-  height: 12rem;
-  width: 12rem;
+  height: 20rem;
+  width: 20rem;
 }
 
 .airportCard {
