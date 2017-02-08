@@ -21,8 +21,6 @@ function convert() {
   oldLocalCurrency = localCurrency
   })
 }
-
-
 function getRate(currencyTo, callback){
   $.getJSON('http://api.fixer.io/latest?base=USD', function( data ) {
     var rate = data.rates[currencyTo]
