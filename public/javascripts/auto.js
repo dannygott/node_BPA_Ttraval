@@ -1,15 +1,15 @@
 var oldLocalCurrency
 var oldDestCurrency
 var converted
-
-// need to grab from backend
-var rate = 2
-// need to grab from backend
+var answer
+var currency = "EUR"
 
 function convert() {
+  getRate(currency, function main(rate) {
+  console.log("bla");
   var localCurrency = document.getElementById('localCurrency').value
   var destCurrency = document.getElementById('destCurrency').value
-  console.log(localCurrency);
+  getRate(currency)
   if ((oldDestCurrency == destCurrency || oldDestCurrency == "")&& localCurrency != oldLocalCurrency || destCurrency == "") {
    converted = localCurrency*rate
    document.getElementById("destCurrency").value = converted;
@@ -19,4 +19,13 @@ function convert() {
   }
   oldDestCurrency = destCurrency
   oldLocalCurrency = localCurrency
+  })
+}
+
+
+function getRate(currencyTo, callback){
+  $.getJSON('http://api.fixer.io/latest?base=USD', function( data ) {
+    var rate = data.rates[currencyTo]
+    callback (rate)
+  });
 }
