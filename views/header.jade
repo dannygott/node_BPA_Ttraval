@@ -42,7 +42,7 @@ div(onclick = "fadetologin(false)").fullscreen.login.text-center
                   div(class="form-group")
                       div(class="col-md-offset-4 col-md-8")
                           input(class="btn btn-default",type='submit',value='Log in')
-                button(onclick="register(true)").destButton Register
+                a(onclick="register(true)") Register
             div.register
               form(class="form-horizontal",action="/auth/register",method="post")
                   div.form-group
@@ -50,17 +50,17 @@ div(onclick = "fadetologin(false)").fullscreen.login.text-center
                       div.col-md-8
                           input(type='text',name='username')
                   div.form-group
-                      label.col-md-4.control-label Password 
+                      label.col-md-4.control-label Password
                           i.glyphicon.glyphicon-question-sign(title=
                           "You must have 6+ characters, 1 uppercase letter, and 1 number")
                       div.col-md-8
                           input(type='password',name='password')
                   div.form-group
-                      label.col-md-6.control-label Airport Code 
+                      label.col-md-6.control-label Airport Code
                           i.glyphicon.glyphicon-question-sign(title=
                           "Use a 3-letter IATA code (e.g. JFK)")
                       input(type='text',name='airport').col-md-6
                   div.form-group
                       div.col-md-offset-4.col-md-8
                           input(class="btn btn-default",type='submit',value='Register')
-                button(onclick="register(false)").destButton Back To Logon
+                a(onclick="register(false)") Back To Logon

@@ -3,7 +3,7 @@ function fadetologin(selector) {
     $(".login").fadeIn( 'slow', function(){
     });
   }else {
-    if (checkhover() != "INPUT" && checkhover() != "FORM" && checkhover() != "BUTTON") {
+    if (checkhover() != "INPUT" && checkhover() != "FORM" && checkhover() != "BUTTON" && checkhover() != "A") {
       $(".login").fadeOut( 'slow', function(){
       });
     }
