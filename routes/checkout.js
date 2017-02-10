@@ -21,9 +21,15 @@ router.get('/:id', authorizeUser(), function(req, res, next) {
     });
 });
 
+<<<<<<< HEAD
 router.get('/confirm/:id', authorizeUser(), function(req, res, next) {
     let id = req.params.id;
 });
+=======
+//router.get('/confirm/:id', authorizeUser(), function(req, res, next) {
+//    let id = req.params.id,
+//}); NOAHHHHH THIS DONT WORK MA DUDED
+>>>>>>> 2bbd7a595b0046713fa6bb853037830bbf133f90
 
 
 module.exports = router;
