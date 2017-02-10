@@ -22,7 +22,7 @@ router.get('/:id', authorizeUser(), function(req, res, next) {
 });
 
 router.get('/confirm/:id', authorizeUser(), function(req, res, next) {
-    let id = req.params.id,
+    let id = req.params.id;
 });
 
 
