@@ -22,7 +22,21 @@ router.get('/:id', authorizeUser(), function(req, res, next) {
 });
 
 router.get('/confirm/:id', authorizeUser(), function(req, res, next) {
-    let id = req.params.id;
+    let id = req.params.id,
+        startDate = req.params.startDate,
+        endDate = req.params.endDate,
+        user = req.user;
+
+    db.getDest(req.params.id, function(err, result) {
+        if (err) throw err;
+
+        if (!result) {
+            res.render('error', { message: 'Destination does not exist', error: {},
+            navItems: navItems });
+        } else {
+            db.bookTrip(user.id, id,)
+        }
+    });
 });
 
 

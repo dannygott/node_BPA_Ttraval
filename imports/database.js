@@ -32,6 +32,13 @@ r.connect({
             console.log('Creating users table...');
         }
     });
+    r.tableCreate('bookedTrips').run(conn, function(err, result) {
+        if (err) {
+            console.log('Using existing bookedTrips table');
+        } else {
+            console.log('Creating bookedTrips table...');
+        }
+    });
 });
 
 module.exports = {
@@ -51,6 +58,21 @@ module.exports = {
             r.table('destinations').get(id).delete().run(conn);
         });
     },
+
+// Trips
+    bookTrip(userID, destID, startDate, endDate, cb) {
+        r.table('bookedTrips').insert({
+            timestamp: Date.now(),
+            userID: userID,
+            destID: destID,
+            startDate: startDate,
+            endDate: endDate
+        }).run(conn);
+    },
+
+    cancelTrip(id, cb) {
+        r.table('bookedTrips').get(id).delete().run(conn);
+    }
 
 // Users
     getUser(username, cb) {
