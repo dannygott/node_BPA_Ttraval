@@ -34,7 +34,11 @@ router.get('/confirm/:id', authorizeUser(), function(req, res, next) {
             res.render('error', { message: 'Destination does not exist', error: {},
             navItems: navItems });
         } else {
-            db.bookTrip(user.id, id,)
+            db.bookTrip(user.id, id,startDate,endDate, function(err, res) {
+                if (err) throw err;
+
+                // redirect to a success page
+            });
         }
     });
 });

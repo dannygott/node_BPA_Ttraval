@@ -72,7 +72,7 @@ module.exports = {
 
     cancelTrip(id, cb) {
         r.table('bookedTrips').get(id).delete().run(conn);
-    }
+    },
 
 // Users
     getUser(username, cb) {
