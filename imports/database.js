@@ -3,9 +3,9 @@ var fs = require('fs');
 
 var conn = null;
 
-r.connect({
-    db: 'travel'
-}, function(err, connection) {
+var dbConfig = require('../config.json').dbConfig;
+
+r.connect(dbConfig, function(err, connection) {
     if (err) throw err;
     conn = connection;
     console.log("DB Connected!");
