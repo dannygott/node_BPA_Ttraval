@@ -1,42 +1,52 @@
 var r = require('rethinkdb');
 var fs = require('fs');
-
+var winston = require('winston');
 var conn = null;
+
+var winston = new(winston.Logger)({
+    transports: [
+        new(winston.transports.Console)(),
+        new(winston.transports.File)({
+            filename: 'DBlog.log'
+        })
+    ]
+});
+
 
 var dbConfig = require('../config.json').dbConfig;
 
 r.connect(dbConfig, function(err, connection) {
-    if (err) throw err;
+    if (err) winston.error(err);
     conn = connection;
-    console.log("DB Connected!");
+    winston.info("DB Connected!");
 
     r.dbCreate('travel').run(conn, function(err, result) {
         if (err) {
-            console.log('Using existing travel DB');
+            winston.info('Using existing travel DB');
         }
         else {
-            console.log('Creating travel DB...');
+            winston.info('Creating travel DB...');
         }
     });
     r.tableCreate('destinations').run(conn, function(err, result) {
         if (err) {
-            console.log('Using existing destinations table');
+            winston.info('Using existing destinations table');
         } else {
-            console.log('Creating destinations table...');
+            winston.info('Creating destinations table...');
         }
     });
     r.tableCreate('users').run(conn, function(err, result) {
         if (err) {
-            console.log('Using existing users table');
+            winston.info('Using existing users table');
         } else {
-            console.log('Creating users table...');
+            winston.info('Creating users table...');
         }
     });
     r.tableCreate('bookedTrips').run(conn, function(err, result) {
         if (err) {
-            console.log('Using existing bookedTrips table');
+            winston.info('Using existing bookedTrips table');
         } else {
-            console.log('Creating bookedTrips table...');
+            winston.info('Creating bookedTrips table...');
         }
     });
 });
