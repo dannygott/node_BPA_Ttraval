@@ -2,15 +2,15 @@ var lastentry = "";
 
 $(".search").keyup(function(event) {
    if($('.search').val() != lastentry) {
-     $(".destbox").fadeOut( 'slow', function(){
+     $(".destbox").stop().fadeOut( 'slow', function(){
      });
      console.log("I WORK");
      $( ".destButton" ).each(function( index ) {
-        var searchfor = $('.search').val()
+        var searchfor = $('.search').val().toUpperCase();
         console.log(searchfor);
-       if ($(this).text().includes(searchfor) == true){
+       if ($(this).text().toUpperCase().includes(searchfor) == true){
          console.log("I tried");
-         $(this).parent().parent().parent().fadeIn( 'slow', function(){
+         $(this).parent().parent().parent().stop().fadeIn( 'fast', function(){
          });
        }
      });
