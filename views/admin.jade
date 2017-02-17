@@ -31,14 +31,14 @@ block content
                         form(action='/admin/addDest',method='post',enctype='multipart/form-data')
                             td
                             td
+                                input(type='text',name='id',required).form-control
+                            td
                                 input(type='text',name='airport').form-control
                             td
-                                input(type='text',name='id').form-control
-                            td
-                                input(type='text',name='dest').form-control
+                                input(type='text',name='dest',required).form-control
                             td
                                 input(type='text',name='desc').form-control
                             td
-                                input(type='file',name='image')
+                                input(type='file',name='image',required)
 
                                 button(class="btn btn-primary pull-right",type="submit") Submit

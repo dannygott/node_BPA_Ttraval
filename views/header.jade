@@ -34,11 +34,11 @@ div(onclick = "fadetologin(false)").fullscreen.login.text-center
                   div(class="form-group")
                       label(class="col-md-4 control-label") Username
                       div(class="col-md-8")
-                          input(type='text',name='username')
+                          input(type='text',name='username',required)
                   div(class="form-group")
                       label(class="col-md-4 control-label") Password
                       div(class="col-sm-8")
-                          input(type='password',name='password')
+                          input(type='password',name='password',required)
                   div(class="form-group")
                       div(class="col-md-offset-4 col-md-8")
                           input(class="btn btn-default",type='submit',value='Log in')
@@ -48,13 +48,13 @@ div(onclick = "fadetologin(false)").fullscreen.login.text-center
                   div.form-group
                       label.col-md-4.control-label Username
                       div.col-md-8
-                          input(type='text',name='username')
+                          input(type='text',name='username',required)
                   div.form-group
                       label.col-md-4.control-label Password
                           i.glyphicon.glyphicon-question-sign(title=
                           "You must have 6+ characters, 1 uppercase letter, and 1 number")
                       div.col-md-8
-                          input(type='password',name='password')
+                          input(type='password',name='password',required)
                   div.form-group
                       label.col-md-6.control-label Airport Code
                           i.glyphicon.glyphicon-question-sign(title=

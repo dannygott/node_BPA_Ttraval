@@ -31,9 +31,9 @@ router.get('/', authorizeUser('admin'), function(req, res, next) {
 
 router.post('/addDest', upload.single('image'), function(req, res) {
     let dest = req.body.dest,
-        id = req.body.id,
+        id = req.body.id.toLowerCase(),
         desc = req.body.desc,
-        airport = req.body.airport,
+        airport = req.body.airport.toUpperCase(),
         image = req.file.filename;
 
     db.addDest({ title: dest, id: id, airport: airport, description: desc, image: image },function(err, result) {
