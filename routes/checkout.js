@@ -1,4 +1,5 @@
 var express = require('express');
+var moment = require('moment');
 var router = express.Router();
 var navItems = require('../config.json').navItems;
 
@@ -14,8 +15,8 @@ function parseDate(str) {
 router.post('/:id', authorizeUser(), function(req, res, next) {
     // maybe do some regex to verify here later
     let dates = req.body.daterange.split(" - ");
-    let startDate = parseDate(dates[0]);
-    let endDate = parseDate(dates[1]);
+    let startDate = moment(parseDate(dates[0])).format('MMM Do, Y');
+    let endDate = moment(parseDate(dates[1])).format('MMM Do, Y');
 
     db.getDest(req.params.id, function(err, result) {
         if (err) throw err;
@@ -24,8 +25,8 @@ router.post('/:id', authorizeUser(), function(req, res, next) {
             res.render('error', { message: 'Destination Not Found', error: {},
             navItems: navItems });
         } else {
-            res.render('checkout', { dest: result, user: req.user,
-                navItems: navItems });
+            res.render('checkout', { dest: result, user: req.user, startDate: startDate,
+                endDate: endDate, navItems: navItems });
         }
     });
 });
