@@ -13,6 +13,7 @@
     "express": "~4.13.4",
     "express-session": "^1.14.1",
     "helmet": "^2.3.0",
+    "https": "^1.0.0",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "multer": "^1.2.0",
@@ -20,6 +21,7 @@
     "passport-local": "^1.0.0",
     "request": "^2.79.0",
     "rethinkdb": "^2.3.3",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "winston": "^2.3.1"
   }
 }
