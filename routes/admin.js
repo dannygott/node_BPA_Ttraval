@@ -17,8 +17,11 @@ var db = require('../imports/database.js'),
 
 var navItems = require('../config.json').navItems;
 
+// authenticate for the everything in /admin
+router.use(authorizeUser('admin'));
+
 /* GET home page. */
-router.get('/', authorizeUser('admin'), function(req, res, next) {
+router.get('/', function(req, res, next) {
     db.getDests(function(err, cursor) {
         if (err) throw err;
 
