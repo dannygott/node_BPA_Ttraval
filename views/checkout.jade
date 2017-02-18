@@ -3,8 +3,7 @@ block content
     div
         center
           div
-            h1(style="font-size: 70px") Check Out
-
+            h1(style="font-size: 70px") Checkout
 
             div.bluBox.shadow
               h3.blutytles.shadow Flight Information
@@ -37,3 +36,12 @@ block content
                     input(type="number" name="To" id="localCurrency").inputstyled
                     button( type="button" onclick="return convert();" style = "height:3vw;").destButton Convert
                     input(type="number" name="From" id="destCurrency").inputstyled
+
+            div.bluBox.shadow
+              h3.blutytles.shadow Final Details
+              div(style = "padding-top:2vw;").row
+                  div.col-md-6
+                      h2 Depart
+                      h3=user.airport
+                  div.col-md-6
+                button(type="confirm").btn.btn-lg.btn-primary Book yo flight
