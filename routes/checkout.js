@@ -5,8 +5,18 @@ var navItems = require('../config.json').navItems;
 var db = require('../imports/database.js');
 var authorizeUser = require('../imports/auth.js').authorizeUser;
 
-/* GET checkout page for a destination */
-router.get('/:id', authorizeUser(), function(req, res, next) {
+function parseDate(str) {
+    let parts = str.split('/');
+    return new Date(parts[2], parts[0]-1, parts[1]);
+}
+
+/* POST checkout page for a destination */
+router.post('/:id', authorizeUser(), function(req, res, next) {
+    // maybe do some regex to verify here later
+    let dates = req.body.daterange.split(" - ");
+    let startDate = parseDate(dates[0]);
+    let endDate = parseDate(dates[1]);
+
     db.getDest(req.params.id, function(err, result) {
         if (err) throw err;
 
@@ -14,7 +24,6 @@ router.get('/:id', authorizeUser(), function(req, res, next) {
             res.render('error', { message: 'Destination Not Found', error: {},
             navItems: navItems });
         } else {
-
             res.render('checkout', { dest: result, user: req.user,
                 navItems: navItems });
         }

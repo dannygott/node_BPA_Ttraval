@@ -3,7 +3,7 @@ block content
     div.container.well(style='background: url("/img/' + dest.image + '");' + 'background-size: cover;')
         h1= dest.title
         if user
-            form(action='/checkout/'+dest.id)
+            form(action='/checkout/'+dest.id,method="POST")
                 input(type='text',name='daterange',style="margin-right:10px;")
                 button(type='submit').btn.btn-primary Check Out
         else

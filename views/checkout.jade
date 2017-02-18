@@ -13,7 +13,7 @@ block content
                   div(style="border-radius: 15px 0px 0px 15px;").airportCard.shadow
                     div(style = "padding:2vw 3vw 2vw 3vw;")
                       h3 From
-                      p whatever the airport
+                      h2= user.airport
                       div(id = "fromMap" style = "width:35vw;")
                       script(src="/javascripts/maps.js")
 
@@ -22,7 +22,7 @@ block content
                   div(style="border-radius: 0px 15px 15px 0px;").airportCard.shadow
                     div(style = "padding:2vw 3vw 2vw 3vw; border-radius: 0px 15px 15px 0px;")
                       h3 To
-                      p WHatever The airport
+                      h2= dest.airport
                       div(id = "toMap" style = "width:35vw;")
                       script(src="/javascripts/maps.js")
 
