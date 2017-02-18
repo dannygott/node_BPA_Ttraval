@@ -1,7 +1,4 @@
-var lastentry = "";
 
-$(".search").keyup(function(event) {
-   if($('.search').val() != lastentry) {
      $(".destbox").stop().fadeOut( 'slow', function(){
      });
      $( ".destButton" ).each(function( index ) {
@@ -12,6 +9,3 @@ $(".search").keyup(function(event) {
          });
        }
      });
-   }
-   lastentry = $('.search').val()
-});
