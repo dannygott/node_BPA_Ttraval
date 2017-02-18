@@ -6,17 +6,12 @@ var navItems = require('../config.json').navItems;
 var db = require('../imports/database.js');
 var authorizeUser = require('../imports/auth.js').authorizeUser;
 
-function parseDate(str) {
-    let parts = str.split('/');
-    return new Date(parts[2], parts[0]-1, parts[1]);
-}
-
 /* POST checkout page for a destination */
 router.post('/:id', authorizeUser(), function(req, res, next) {
     // maybe do some regex to verify here later
     let dates = req.body.daterange.split(" - ");
-    let startDate = moment(parseDate(dates[0])).format('MMM Do, Y');
-    let endDate = moment(parseDate(dates[1])).format('MMM Do, Y');
+    let startDate = moment(dates[0],"M/DD/YYYY").format('MMM Do, Y');
+    let endDate = moment(dates[0],"M/DD/YYYY").format('MMM Do, Y');
 
     db.getDest(req.params.id, function(err, result) {
         if (err) throw err;
