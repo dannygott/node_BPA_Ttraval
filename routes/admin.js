@@ -44,15 +44,22 @@ router.post('/addDest', upload.single('image'), function(req, res) {
     res.redirect('/admin');
 });
 
-router.post('modDest', upload.single('image'), function(req, res) {
-    let id = req.body.id,
-        dest = req.body.dest,
-        desc = req.body.image,
-        image = req.file.filename;
+router.post('/modDest/:id', upload.single('image'), function(req, res) {
+    let updateObj = {};
+    let id = req.params.id;
 
-    console.log(image);
+    if (req.body.airport) updateObj.airport = req.body.airport.toUpperCase();
+    if (req.body.desc) updateObj.desc = req.body.desc;
+    if (req.body.dest) updateObj.dest = req.body.dest;
+    if (req.file) updateObj.image = req.file.filename;
 
-    res.redirect('/admin');
+    console.log(updateObj);
+
+    db.modDest(id, updateObj, function(err, result) {
+        if (err) throw err;
+
+        res.redirect('/admin');
+    });
 });
 
 router.get('/delDest/:id', function(req, res) {

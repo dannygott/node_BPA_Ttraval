@@ -52,6 +52,9 @@ module.exports = {
     addDest(obj,cb) {
         r.table('destinations').insert(obj).run(conn, cb);
     },
+    modDest(id,obj,cb) {
+        r.table('destinations').get(id).update(obj).run(conn,cb);
+    },
     delDest(id) {
         this.getDest(id, function(err, res) {
             fs.unlinkSync('public/img/' + res.image);
