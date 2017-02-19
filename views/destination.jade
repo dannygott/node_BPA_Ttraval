@@ -1,13 +1,13 @@
 extends layout
 block content
+    script(src="/javascripts/loginfadr.js")
     div.container.well(style='background: url("/img/' + dest.image + '");' + 'background-size: cover;')
         h1= dest.title
         if user
             form(action='/checkout/'+dest.id,method="POST")
-                input(type='text',name='daterange',style="margin-right:10px;")
-                button(type='submit').btn.btn-primary Check Out
+                input(type='text',name='daterange',style="margin-right:10px;").inputstyled
+                button(type='submit').destButton Check Out
         else
-            a(href='/checkout/'+dest.id,data-toggle="tooltip",
-            title="You must have an account to check out")
-                .btn.btn-primary.disabled Check Out
-
+            form(action='/checkout/'+dest.id,method="POST")
+                input(type='text',name='daterange',style="margin-right:10px;").inputstyled
+                button(type="button" onclick = "fadetologin(true)").destButton Check Out
