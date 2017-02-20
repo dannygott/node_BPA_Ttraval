@@ -1,8 +1,7 @@
 var lastentry = "";
 $(".search").keyup(function(event) {
    if($('.search').val() != lastentry) {
-     $(".destbox").stop().fadeOut( 'slow', function(){
-     });
+     $(".destbox").stop().fadeOut( 'slow', function(){});
      $( ".destButton" ).each(function( index ) {
         var searchfor = $('.search').val().toUpperCase();
        if ($(this).text().toUpperCase().includes(searchfor) == true){
