@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.post('/login', passport.authenticate('local', { successRedirect: '/',
+router.post('/login', passport.authenticate('local', { successRedirect: 'back',
     failureRedirect: '/error'}
 ));
 
