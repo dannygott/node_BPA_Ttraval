@@ -10,8 +10,11 @@ var authorizeUser = require('../imports/auth.js').authorizeUser;
 router.post('/:id', authorizeUser(), function(req, res, next) {
     // maybe do some regex to verify here later
     let dates = req.body.daterange.split(" - ");
-    let startDate = moment(dates[0],"M/DD/YYYY").format('MMM Do, Y');
-    let endDate = moment(dates[0],"M/DD/YYYY").format('MMM Do, Y');
+
+    let startRaw = moment(dates[0],"M/DD/YYYY"),
+        endRaw = moment(dates[0],"M/DD/YYYY");
+    let startDate = startRaw.format('MMM Do, Y'),
+        endDate = endRaw.format('MMM Do, Y');
 
     db.getDest(req.params.id, function(err, result) {
         if (err) throw err;
