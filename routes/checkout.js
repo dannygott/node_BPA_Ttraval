@@ -38,6 +38,7 @@ router.post('/:id/confirm', authorizeUser(), function(req, res, next) {
 
     db.bookTrip(user.id,destID,startDate,endDate,function(err,res) {
         if (err) throw err;
+        res.render('thankyou', {dest: destID, navItems, navItems});
     });
 });
 
