@@ -25,30 +25,32 @@ router.post('/:id', authorizeUser(), function(req, res, next) {
         } else {
             res.render('checkout', { dest: result, user: req.user, startDate: startDate,
                 endDate: endDate, navItems: navItems });
+            req.user.checkout = {
+                destID: req.params.id,
+                startDate: startRaw.toDate(),
+                endDate: endRaw.toDate()
+            };
+            console.log("MEME!");
         }
     });
 });
 
-router.get('/confirm/:id', authorizeUser(), function(req, res, next) {
-    let id = req.params.id,
-        startDate = req.params.startDate,
-        endDate = req.params.endDate,
-        user = req.user;
+/* GET after done with checkout */
+router.get('/confirm', authorizeUser(), function(req, res, next) {
+    if (req.user.checkout) {
+        let startDate = req.user.checkout.startDate,
+            endDate = req.user.checkout.endDate,
+            user = req.user,
+            destID = req.user.checkout.destID;
 
-    db.getDest(req.params.id, function(err, result) {
-        if (err) throw err;
+        db.bookTrip(user.id,destID,startDate,endDate,function(err,res) {
+            if (err) throw err;
+        });
 
-        if (!result) {
-            res.render('error', { message: 'Destination does not exist', error: {},
-            navItems: navItems });
-        } else {
-            db.bookTrip(user.id, id,startDate,endDate, function(err, res) {
-                if (err) throw err;
+    } else {
+        res.redirect('/error');
+    }
 
-                // redirect to a success page
-            });
-        }
-    });
 });
 
 

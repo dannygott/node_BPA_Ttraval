@@ -5,9 +5,9 @@ block content
         h1= dest.title
         if user
             form(action='/checkout/'+dest.id,method="POST")
-                input(type='text',name='daterange',style="margin-right:10px;").inputstyled
+                input(type='text',name='daterange',style="margin-right:10px;")
                 button(type='submit').destButton Check Out
         else
             form(action='/checkout/'+dest.id,method="POST")
-                input(type='text',name='daterange',style="margin-right:10px;").inputstyled
+                input(type='text',name='daterange',style="margin-right:10px;")
                 button(type="button" onclick = "fadetologin(true)").destButton Check Out
