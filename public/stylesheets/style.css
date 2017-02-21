@@ -166,3 +166,6 @@ html, body
     width: 70%;
     font-size: 32px;
 }
+.label {
+    font-size: 18px !important;
+}
