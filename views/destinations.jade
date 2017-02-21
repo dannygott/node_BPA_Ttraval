@@ -1,5 +1,5 @@
 mixin thumbnail(id, imageName, name , caption)
-  div(style = " display:inline-block;").bluBox.shadow.destbox
+  div.bluBox.shadow.destbox.line
     div.hotelNested
       img(src="img/#{imageName}").destIMG
       h3
@@ -14,7 +14,7 @@ extends layout
 block content
 
   center
-    h1(style="font-size: 70px") Choose Your View
+    h1 Choose Your View
     input(id = "search" type="text" name="search" placeholder="Search...").search
     script(type="text/javascript" src="javascripts/search.js")
     div.views

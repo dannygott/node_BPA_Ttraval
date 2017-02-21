@@ -3,7 +3,7 @@ var fs = require('fs');
 var winston = require('winston');
 var conn = null;
 
-var winston = new(winston.Logger)({
+var winston = new(winston.Logger)({ // winston for logging
     transports: [
         new(winston.transports.Console)(),
         new(winston.transports.File)({
@@ -15,12 +15,12 @@ var winston = new(winston.Logger)({
 
 var dbConfig = require('../config.json').dbConfig;
 
-r.connect(dbConfig, function(err, connection) {
+r.connect(dbConfig, function(err, connection) { // connects to the rethikdb database
     if (err) winston.error(err);
     conn = connection;
     winston.info("DB Connected!");
 
-    r.dbCreate('travel').run(conn, function(err, result) {
+    r.dbCreate('travel').run(conn, function(err, result) {   // creates tables if need be. If not uses existing tables
         if (err) {
             winston.info('Using existing travel DB');
         }
@@ -51,7 +51,7 @@ r.connect(dbConfig, function(err, connection) {
     });
 });
 
-module.exports = {
+module.exports = { // defines fuctions for use on other pages ( self explanitory )
 // Destinations
     getDest(dest, cb) {
         r.table('destinations').get(dest).run(conn, cb);

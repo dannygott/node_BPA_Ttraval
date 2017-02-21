@@ -4,25 +4,25 @@ var converted
 var answer
 var currency = "EUR"
 
-function convert() {
-  getRate(currency, function main(rate) {
+function convert() { // main function
+  getRate(currency, function main(rate) { // takes input of (rate) and currency converting them and returning the result
   console.log("bla");
   var localCurrency = document.getElementById('localCurrency').value
   var destCurrency = document.getElementById('destCurrency').value
   getRate(currency)
-  if ((oldDestCurrency == destCurrency || oldDestCurrency == "")&& localCurrency != oldLocalCurrency || destCurrency == "") {
+  if ((oldDestCurrency == destCurrency || oldDestCurrency == "")&& localCurrency != oldLocalCurrency || destCurrency == "") { // make shure the right field is being replaced with the converted value
    converted = localCurrency*rate
    document.getElementById("destCurrency").value = converted;
- }else {
+ }else{
     converted = destCurrency/rate
     document.getElementById("localCurrency").value = converted;
   }
   oldDestCurrency = destCurrency
-  oldLocalCurrency = localCurrency
+  oldLocalCurrency = localCurrency // set old currencies so that we know if a new val has been imputed
   })
 }
 function getRate(currencyTo, callback){
-  $.getJSON('http://api.fixer.io/latest?base=USD', function( data ) {
+  $.getJSON('https://api.fixer.io/latest?base=USD', function( data ) {
     var rate = data.rates[currencyTo]
     callback (rate)
   });

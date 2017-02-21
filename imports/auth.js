@@ -1,9 +1,9 @@
-var passport = require('passport'),
+var passport = require('passport'),  // requirements
     LocalStrategy = require('passport-local').Strategy,
     db = require('./database'),
     bcrypt = require('bcrypt');
 
-function verifyPassword(pwd, hash) {
+function verifyPassword(pwd, hash) { // varivies the password
     let matches = false;
     matches = bcrypt.compareSync(pwd, hash, function(err, res) {
         if (err) throw err;
@@ -13,7 +13,7 @@ function verifyPassword(pwd, hash) {
     return matches;
 }
 
-passport.use(new LocalStrategy({
+passport.use(new LocalStrategy({ // defines where password and username fields are
         usernameField: 'username',
         passwordField: 'password'
     },
@@ -32,7 +32,7 @@ passport.use(new LocalStrategy({
     }
 ));
 
-passport.serializeUser(function(user,cb) {
+passport.serializeUser(function(user,cb) { // serializes user profile
     cb(null, user);
 });
 passport.deserializeUser(function(user,cb) {
@@ -40,7 +40,7 @@ passport.deserializeUser(function(user,cb) {
 });
 
 module.exports = {
-    authorizeUser(group) {
+    authorizeUser(group) { // defines a function for autherization on other pages
         return function(req, res, next) {
             if (!group && req.user) {
                 next();
