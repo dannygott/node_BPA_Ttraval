@@ -37,7 +37,7 @@ router.post('/:id/confirm', authorizeUser(), function(req, res, next) {
         destID = req.params.id;
 
     console.log('confirming memes');
-    db.bookTrip(user.id,destID,startDate,endDate,function(err,res) {
+    db.bookTrip(user.id,destID,startDate,endDate,function(err,result) {
         if (err) throw err;
         console.log('booked trip');
         res.render('thankyou', {dest: destID, navItems, navItems});
