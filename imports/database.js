@@ -82,7 +82,10 @@ module.exports = {
             endDate: endDate
         }).run(conn);
     },
-
+    getTrips(cb) {
+        r.table('bookedTrips').eqJoin('destID', r.table('destinations'))
+            .zip().run(conn,cb);
+    },
     cancelTrip(id, cb) {
         r.table('bookedTrips').get(id).delete().run(conn);
     },

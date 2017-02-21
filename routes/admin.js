@@ -24,14 +24,26 @@ router.use(authorizeUser('admin'));
 router.get('/', function(req, res, next) {
     db.getDests(function(err, cursor) {
         if (err) throw err;
-
         cursor.toArray(function(err, result) {
             if (err) throw err;
-            res.render('admin', {dests: result, navItems: navItems});
+            var dests = result;
+            db.getTrips(function(err, cursor) {
+                if (err) throw err;
+                cursor.toArray(function(err, result) {
+                    var trips = result;
+                    if (err) throw err;
+                    console.log(trips);
+                    res.render('admin', {dests: dests, trips: trips,
+                        navItems: navItems});
+                });
+            });
         });
     });
 });
 
+//
+// DESTINATIONS
+//
 router.post('/addDest', upload.single('image'), function(req, res) {
     let dest = req.body.dest,
         id = req.body.id.toLowerCase(),
@@ -72,5 +84,9 @@ router.get('/delDest/:id', function(req, res) {
 
     res.redirect('/admin');
 });
+
+//
+// BOOKED TRIPS
+//
 
 module.exports = router;

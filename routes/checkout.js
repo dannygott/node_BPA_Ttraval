@@ -25,32 +25,20 @@ router.post('/:id', authorizeUser(), function(req, res, next) {
         } else {
             res.render('checkout', { dest: result, user: req.user, startDate: startDate,
                 endDate: endDate, navItems: navItems });
-            req.user.checkout = {
-                destID: req.params.id,
-                startDate: startRaw.toDate(),
-                endDate: endRaw.toDate()
-            };
-            console.log("MEME!");
         }
     });
 });
 
-/* GET after done with checkout */
-router.get('/confirm', authorizeUser(), function(req, res, next) {
-    if (req.user.checkout) {
-        let startDate = req.user.checkout.startDate,
-            endDate = req.user.checkout.endDate,
-            user = req.user,
-            destID = req.user.checkout.destID;
+/* POST after done with checkout */
+router.post('/:id/confirm', authorizeUser(), function(req, res, next) {
+    let startDate = req.body.startDate,
+        endDate = req.body.endDate,
+        user = req.user,
+        destID = req.params.id;
 
-        db.bookTrip(user.id,destID,startDate,endDate,function(err,res) {
-            if (err) throw err;
-        });
-
-    } else {
-        res.redirect('/error');
-    }
-
+    db.bookTrip(user.id,destID,startDate,endDate,function(err,res) {
+        if (err) throw err;
+    });
 });
 
 

@@ -95,4 +95,7 @@ block content
                   div.col-md-6
                       h2 Return
                       h3=endDate
-                button(type="confirm").btn.btn-lg.btn-primary Book yo flight
+                form(action=dest.id+"/confirm",method="POST")
+                    input(type="hidden",readonly,name="startDate",value=startDate)
+                    input(type="hidden",readonly,name="endDate",value=endDate)
+                    button(type="confirm").btn.btn-lg.btn-primary Book yo flight
