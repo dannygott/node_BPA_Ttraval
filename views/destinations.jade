@@ -1,7 +1,7 @@
 mixin thumbnail(id, imageName, name , caption)
   div(style = " display:inline-block;").bluBox.shadow.destbox
-    div( style="margin-top: 2%; width: 400px; padding:1%; margin: auto;  display:block; border-radius: 5px; background-color:white; align-self:center;")
-      img(src="img/#{imageName}" width="75%" style="  align-self: center; margin-left:30px; margin-right:30px; margin-top:30px;")
+    div.hotelNested
+      img(src="img/#{imageName}").destIMG
       h3
       form(action="destinations/"+id)
           button.destButton(type="submit")= name
