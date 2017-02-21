@@ -1,4 +1,4 @@
-function fadetologin(selector) {
+function fadetologin(selector) { // if true fades in login, if false fades out login
   if (selector == true) {
     $(".login").fadeIn( 'slow', function(){
     });
@@ -23,7 +23,7 @@ function register(selector) {
       });
   }
 }
-function checkhover(){
+function checkhover(){ // checks hover so that the function is not executed when in a field
  var element = $(':hover');
     if(element.length)
     {

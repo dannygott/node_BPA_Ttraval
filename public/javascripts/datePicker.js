@@ -1,3 +1,3 @@
 $(function() {
-    $('input[name="daterange"]').daterangepicker();
+    $('input[name="daterange"]').daterangepicker(); // picks the date
 });
