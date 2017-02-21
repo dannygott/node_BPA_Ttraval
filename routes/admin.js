@@ -14,6 +14,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 var db = require('../imports/database.js'),
+    logReader = require('../imports/logReader.js');
     authorizeUser = require('../imports/auth.js').authorizeUser;
 
 var navItems = require('../config.json').navItems;
@@ -35,9 +36,10 @@ router.get('/', function(req, res, next) {
                         x.timestamp = moment(x.timestamp).format('MMM Do, Y');
                         return x;
                     });
-                    if (err) throw err;
+                    var logs = logReader.readLog();
+                    console.log(logs[0]);
                     res.render('admin', {dests: dests, trips: trips, user: req.user,
-                        navItems: navItems});
+                        logs: logs, navItems: navItems});
                 });
             });
         });

@@ -94,3 +94,23 @@ block content
                             td= trip.title
                             td= trip.startDate
                             td= trip.endDate
+            h1 Logs
+            table(class="table table-striped")
+                thead
+                    tr
+                        th Timestamp
+                        th Level
+                        th Message
+                tbody
+                    each log in logs
+                        tr
+                            td= log.timestamp
+                            td
+                                case log.level
+                                    when 'info'
+                                        span.label.label-info= log.level
+                                    when 'warning'
+                                        span.label.label-warning= log.level
+                                    when 'error'
+                                        span.label.label-danger= log.level
+                            td= log.message

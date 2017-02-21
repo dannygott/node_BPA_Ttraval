@@ -25,10 +25,6 @@ var getAirportName = function(code,cb) {
     });
 }
 
-getAirportName('JFK', (result) => {
-    console.log(result);
-});
-
 module.exports = {
     verifyCode: verifyCode,
 }
