@@ -76,38 +76,21 @@ block content
             table(class="table table-striped")
                 thead
                     tr
-                        th.col-md-1 Date Booked
-                        th.col-md-1 User
-                        th.col-md-2 Destination
-                        th Description
-                        th Image (path)
+                        th
+                        th Date Booked
+                        th User
+                        th Destination
+                        th Start Date
+                        th End Date
                 tbody
                     each trip in trips
                         tr
                             td
                                 div.btn-group
-                                    a(href='/admin/delDest/#{dest.id}').btn.btn-default
+                                    a(href='/admin/delTrip/'+trip.id).btn.btn-default
                                         span(class='glyphicon glyphicon-remove')
-                                    button(data-toggle="modal",data-target="#"+dest.id).btn.btn-default
-                                        span(class='glyphicon glyphicon-pencil')
                             td= trip.timestamp
-                            td= dest.airport
-                            td= dest.title
-                            td= dest.description
-                            td= dest.image
-                        +modDest(dest.id,dest.airport,dest.title,dest.description)
-                    tr
-                        form(action='/admin/addDest',method='post',enctype='multipart/form-data')
-                            td
-                            td
-                                input(type='text',name='id',required).form-control
-                            td
-                                input(type='text',name='airport').form-control
-                            td
-                                input(type='text',name='dest',required).form-control
-                            td
-                                input(type='text',name='desc').form-control
-                            td
-                                input(type='file',name='image',required)
-
-                                button(class="btn btn-primary pull-right",type="submit") Submit
+                            td= trip.userID
+                            td= trip.title
+                            td= trip.startDate
+                            td= trip.endDate

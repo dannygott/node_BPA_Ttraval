@@ -83,10 +83,12 @@ module.exports = {
         }).run(conn);
     },
     getTrips(cb) {
+        // Move the trip id to be called tripID and merge table
         r.table('bookedTrips').eqJoin('destID', r.table('destinations'))
+            .without({"right": {"id": true}})
             .zip().run(conn,cb);
     },
-    cancelTrip(id, cb) {
+    cancelTrip(id) {
         r.table('bookedTrips').get(id).delete().run(conn);
     },
 

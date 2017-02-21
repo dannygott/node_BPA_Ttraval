@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var multer = require('multer');
+var moment = require('moment');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -30,10 +31,12 @@ router.get('/', function(req, res, next) {
             db.getTrips(function(err, cursor) {
                 if (err) throw err;
                 cursor.toArray(function(err, result) {
-                    var trips = result;
+                    var trips = result.map(function(x) {
+                        x.timestamp = moment(x.timestamp).format('MMM Do, Y');
+                        return x;
+                    });
                     if (err) throw err;
-                    console.log(trips);
-                    res.render('admin', {dests: dests, trips: trips,
+                    res.render('admin', {dests: dests, trips: trips, user: req.user,
                         navItems: navItems});
                 });
             });
@@ -68,8 +71,6 @@ router.post('/modDest/:id', upload.single('image'), function(req, res) {
     if (req.body.dest) updateObj.dest = req.body.dest;
     if (req.file) updateObj.image = req.file.filename;
 
-    console.log(updateObj);
-
     db.modDest(id, updateObj, function(err, result) {
         if (err) throw err;
 
@@ -88,5 +89,12 @@ router.get('/delDest/:id', function(req, res) {
 //
 // BOOKED TRIPS
 //
+router.get('/delTrip/:id', function(req, res) {
+    let tripID = req.params.id;
+
+    db.cancelTrip(tripID);
+
+    res.redirect('/admin');
+});
 
 module.exports = router;
