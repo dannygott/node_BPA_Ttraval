@@ -50,6 +50,7 @@ html, body
   background-color: white;
   display: inline-block;
   vertical-align: middle;
+  border-radius: 15px 0px 0px 15px;
 }
 
 #toMap{
