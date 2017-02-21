@@ -29,6 +29,7 @@ node_modules
 
 public/img
 
-Session.vim
-
 rethinkdb_data
+
+# Tern
+.tern-project

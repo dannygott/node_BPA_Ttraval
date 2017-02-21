@@ -17,23 +17,38 @@ var db = require('../imports/database.js'),
 
 var navItems = require('../config.json').navItems;
 
+// authenticate for the everything in /admin
+router.use(authorizeUser('admin'));
+
 /* GET home page. */
-router.get('/', authorizeUser('admin'), function(req, res, next) {
+router.get('/', function(req, res, next) {
     db.getDests(function(err, cursor) {
         if (err) throw err;
-
         cursor.toArray(function(err, result) {
             if (err) throw err;
-            res.render('admin', {dests: result, navItems: navItems});
+            var dests = result;
+            db.getTrips(function(err, cursor) {
+                if (err) throw err;
+                cursor.toArray(function(err, result) {
+                    var trips = result;
+                    if (err) throw err;
+                    console.log(trips);
+                    res.render('admin', {dests: dests, trips: trips,
+                        navItems: navItems});
+                });
+            });
         });
     });
 });
 
+//
+// DESTINATIONS
+//
 router.post('/addDest', upload.single('image'), function(req, res) {
     let dest = req.body.dest,
-        id = req.body.id,
+        id = req.body.id.toLowerCase(),
         desc = req.body.desc,
-        airport = req.body.airport,
+        airport = req.body.airport.toUpperCase(),
         image = req.file.filename;
 
     db.addDest({ title: dest, id: id, airport: airport, description: desc, image: image },function(err, result) {
@@ -44,15 +59,22 @@ router.post('/addDest', upload.single('image'), function(req, res) {
     res.redirect('/admin');
 });
 
-router.post('modDest', upload.single('image'), function(req, res) {
-    let id = req.body.id,
-        dest = req.body.dest,
-        desc = req.body.image,
-        image = req.file.filename;
+router.post('/modDest/:id', upload.single('image'), function(req, res) {
+    let updateObj = {};
+    let id = req.params.id;
 
-    console.log(image);
+    if (req.body.airport) updateObj.airport = req.body.airport.toUpperCase();
+    if (req.body.desc) updateObj.desc = req.body.desc;
+    if (req.body.dest) updateObj.dest = req.body.dest;
+    if (req.file) updateObj.image = req.file.filename;
 
-    res.redirect('/admin');
+    console.log(updateObj);
+
+    db.modDest(id, updateObj, function(err, result) {
+        if (err) throw err;
+
+        res.redirect('/admin');
+    });
 });
 
 router.get('/delDest/:id', function(req, res) {
@@ -62,5 +84,9 @@ router.get('/delDest/:id', function(req, res) {
 
     res.redirect('/admin');
 });
+
+//
+// BOOKED TRIPS
+//
 
 module.exports = router;
