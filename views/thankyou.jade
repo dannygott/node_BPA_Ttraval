@@ -1,11 +1,10 @@
 link(rel='stylesheet', href='/stylesheets/style.css')
 extends layout
 block content
-  center
-    div.bluBox.line
-        div.blucont
-          center
-            h1 Thank You
-            h2(style = "font-family: 'Yellowtail', cursive !important; padding: 10px") We appreciate your service
-            h2(style = "font-family: 'Yellowtail', cursive !important; padding: 10px") You will recive an email shortly with the details of your order
-            a(href = "/") Go Back To Home
+    div.bluBox.line.col-md-4.col-md-offset-4
+        center
+            div.blucont
+                h1 Thank You
+                h3 We appreciate your service
+                p You will receive an email shortly with the details of your order
+                a(href = "/") Go Back To Home

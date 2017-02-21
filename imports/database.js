@@ -80,7 +80,7 @@ module.exports = { // defines fuctions for use on other pages ( self explanitory
             destID: destID,
             startDate: startDate,
             endDate: endDate
-        }).run(conn);
+        }).run(conn,cb);
     },
     getTrips(cb) {
         // Move the trip id to be called tripID and merge table
