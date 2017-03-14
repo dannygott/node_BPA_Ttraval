@@ -7,5 +7,7 @@
 "dbConfig": {
     "host": "127.0.0.1",
     "db": "travel"
-}
+},
+"port": "443",
+"env": "production"
 }

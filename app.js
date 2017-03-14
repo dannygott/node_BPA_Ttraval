@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
+var config = require('./config.json');
 
 var routes = require('./routes/index');
 var destinations = require('./routes/destinations');
@@ -15,6 +16,8 @@ var auth = require('./routes/auth');
 var settings = require('./routes/settings');
 
 var app = express();
+
+app.set('env', config.env || process.env.NODE_ENV);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
