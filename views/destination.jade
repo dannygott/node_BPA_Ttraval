@@ -11,3 +11,10 @@ block content
             form(action='/checkout/'+dest.id,method="POST")
                 input(type='text',name='daterange',style="margin-right:10px;")
                 button(type="button" onclick = "fadetologin(true)").destButton Check Out
+        p= dest.descrip
+        h3 Things To Do :
+        for thing in thingsToDo
+          li = thing
+        h3 Things To See :
+        for see in thingsToSee
+          li = see
