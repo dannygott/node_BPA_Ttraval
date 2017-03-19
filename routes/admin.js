@@ -99,4 +99,13 @@ router.get('/delTrip/:id', function(req, res) {
     res.redirect('/admin');
 });
 
+//
+// LOGS
+//
+router.get('/delLogs', function(req, res) {
+    logReader.deleteLog();
+
+    res.redirect('/admin');
+});
+
 module.exports = router;

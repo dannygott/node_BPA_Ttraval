@@ -1,6 +1,16 @@
 var fs = require('fs');
 var lineread = require('readline');
 var moment = require('moment');
+var winston = require('winston');
+
+var winston = new(winston.Logger)({ // winston for logging
+    transports: [
+        new(winston.transports.Console)(),
+        new(winston.transports.File)({
+            filename: 'DBlog.log'
+        })
+    ]
+});
 
 var readLog = function() {
     var arr = fs.readFileSync('DBlog.log').toString().split('\n');
@@ -16,6 +26,7 @@ var readLog = function() {
 
 var deleteLog = function() {
     fs.unlinkSync('DBlog.log');
+    winston.info('Logs reset');
 };
 
 module.exports = {

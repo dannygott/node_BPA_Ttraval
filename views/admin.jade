@@ -31,12 +31,12 @@ mixin modDest(id, airport, title, desc)
 
 block content
     div(class="row")
-        div(class="col-md-8 col-md-offset-2")
+        div(class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1")
             h1 Destinations
             table(class="table table-striped")
                 thead
                     tr
-                        th.col-md-1(style="width:9%")
+                        th.col-md-1(style="width:10rem")
                         th.col-md-1 Section (id)
                         th.col-md-1 Airport
                         th.col-md-2 Destination
@@ -95,6 +95,7 @@ block content
                             td= trip.startDate
                             td= trip.endDate
             h1 Logs
+            a.btn.btn-large.btn-danger.pull-right(style="margin-top:-3em",href="/admin/delLogs") Clear logs
             table(class="table table-striped")
                 thead
                     tr
