@@ -54,14 +54,10 @@ html, body
 }
 
 .hotelNested{
-  margin-top: 2%;
   width: 400px;
-  padding:1%;
-  margin: auto;
   display:block;
   border-radius: 5px;
   background-color:white;
-  align-self:center;
 }
 
 #toMap{
@@ -92,7 +88,7 @@ html, body
   height: 3vw;
   width: 10vw;
   font-size: 2vw;
-  outline-width: 0;
+  outine-width: 0;
   transition-duration: 0.4s;
   border-radius: 4px;
   margin-left: 3vw;
