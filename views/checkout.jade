@@ -13,8 +13,7 @@ block content
                     div(style = "padding:2vw 3vw 2vw 3vw;")
                       h3 From
                       h2= user.airport
-                      div(id = "fromMap" style = "width:35vw;")
-                      script(src="/javascripts/maps.js")
+                      img(src="/airport.jpg",height="300")
 
                   image(src="/img/flightcircle.png").centered.shadow.flightCircle
 
@@ -22,8 +21,7 @@ block content
                     div(style = "padding:2vw 3vw 2vw 3vw; border-radius: 0px 15px 15px 0px;")
                       h3 To
                       h2= dest.airport
-                      div(id = "toMap" style = "width:35vw;")
-                      script(src="/javascripts/maps.js")
+                      img(src='/img/'+dest.image,height="300")
 
             div.bluBox.shadow
               div
@@ -36,56 +34,6 @@ block content
                     input(type="number" name="From" id="destCurrency").inputstyled
                   script(src="/javascripts/auto.js")
 
-            center
-              div.views.bluBox.shadow
-                      script(src="/javascripts/hotelanimation.js")
-                      h3.blutytles.shadow Lodging
-                      div(style = "visibility: hidden;").blucont.shadow.hotelInfo
-                        h1 this is cool
-                        h1 This is a important thing
-                      div.line.bluBox.shadow.hotelBox
-                        div.hotelNested
-                          img(src="/img/boston.jpg").destIMG
-                          h3
-                          form
-                              button.destButton( type = "button" onclick="hotelinfo('hilton', true)") Hilton INN
-                            p jaun
-                      div.line.bluBox.shadow.hotelBox
-                        div.hotelNested
-                          img(src="/img/boston.jpg").destIMG
-                          h3
-                          form
-                              button.destButton(onclick="hotelinfo(hilton, true)") Hilton INN
-                            p jaun
-                      div.line.bluBox.shadow.hotelBox
-                        div.hotelNested
-                          img(src="/img/boston.jpg").destIMG
-                          h3
-                          form
-                              button.destButton(onclick="hotelinfo(hilton, true)") Hilton INN
-                            p jaun
-                      div.line.bluBox.shadow.hotelBox
-                        div.hotelNested
-                          img(src="/img/boston.jpg").destIMG
-                          h3
-                          form
-                              button.destButton(onclick="hotelinfo(hilton, true)") Hilton INN
-                            p jaun
-                      div.line.bluBox.shadow.hotelBox
-                        div.hotelNested
-                          img(src="/img/boston.jpg").destIMG
-                          h3
-                          form
-                              button.destButton(onclick="hotelinfo(hilton, true)") Hilton INN
-                            p jaun
-                      div.line.bluBox.shadow.hotelBox
-                        div.hotelNested
-                          img(src="/img/boston.jpg").destIMG
-                          h3
-                          form
-                              button.destButton(onclick="hotelinfo(hilton, true)") Hilton INN
-                            p jaun
-                      script(src="/javascripts/hotelanimation.js")
             div.bluBox.shadow
               h3.blutyles.shadow Final Details
               div(style = "padding-top:2vw;").row.blucont
