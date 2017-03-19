@@ -86,7 +86,7 @@ module.exports = { // defines fuctions for use on other pages ( self explanitory
         // Move the trip id to be called tripID and merge table
         r.table('bookedTrips').eqJoin('destID', r.table('destinations'))
             .without({"right": {"id": true}})
-            .zip().run(conn,cb);
+            .zip().orderBy(r.desc('timestamp')).run(conn,cb);
     },
     cancelTrip(id) {
         r.table('bookedTrips').get(id).delete().run(conn);
