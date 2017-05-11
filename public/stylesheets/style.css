@@ -20,7 +20,7 @@ html, body
     color: white;
     padding: .5vw 1.5;
     border-radius: 4px;
-    border: 2px solid #22B473;
+    border: 2px solid #22B473;     
 }
 .panel-primary>.panel-heading {
   background-color: #22B473 !important;
