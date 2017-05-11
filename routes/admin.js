@@ -37,7 +37,6 @@ router.get('/', function(req, res, next) {
                         return x;
                     });
                     var logs = logReader.readLog();
-                    console.log(logs[0]);
                     res.render('admin', {dests: dests, trips: trips, user: req.user,
                         logs: logs, navItems: navItems});
                 });
@@ -69,8 +68,8 @@ router.post('/modDest/:id', upload.single('image'), function(req, res) {
     let id = req.params.id;
 
     if (req.body.airport) updateObj.airport = req.body.airport.toUpperCase();
-    if (req.body.desc) updateObj.desc = req.body.desc;
-    if (req.body.dest) updateObj.dest = req.body.dest;
+    if (req.body.desc) updateObj.description = req.body.desc;
+    if (req.body.dest) updateObj.title = req.body.dest;
     if (req.file) updateObj.image = req.file.filename;
 
     db.modDest(id, updateObj, function(err, result) {
